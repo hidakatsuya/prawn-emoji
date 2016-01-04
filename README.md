@@ -64,4 +64,4 @@ Emoji provided free by [Emoji One](http://emojione.com/).
 
 ## License
 
-© 2015 Katsuya HIDAKA. See MIT-LICENSE for further details.
+© 2015 Katsuya HIDAKA. See MIT-LICENSE for further details.
