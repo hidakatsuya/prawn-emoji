@@ -1,5 +1,7 @@
 # Prawn::Emoji
 
+[![Build Status](https://travis-ci.org/hidakatsuya/prawn-emoji.svg)](https://travis-ci.org/hidakatsuya/prawn-emoji)
+
 Provides support for Emoji in [Prawn](https://github.com/prawnpdf/prawn).
 
 ## Installation
