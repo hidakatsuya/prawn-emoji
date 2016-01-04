@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hidakatsuya/prawn-emoji.svg)](https://travis-ci.org/hidakatsuya/prawn-emoji)
 
-Provides support for Emoji in [Prawn](https://github.com/prawnpdf/prawn).
+Prawn::Emoji is an extention for [Prawn](https://github.com/prawnpdf/prawn), provides feature for drawing Emoji.
 
 ## Installation
 

@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['hidakatsuya@gmail.com']
 
   spec.summary       = 'Provides support for Emoji in Prawn'
+  spec.description   = 'Prawn::Emoji is an extention for Prawn, provides feature for drawing Emoji.'
   spec.homepage      = 'https://github.com/hidakatsuya/prawn-emoji'
   spec.license       = 'MIT'
   spec.platform      = Gem::Platform::RUBY
