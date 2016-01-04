@@ -50,6 +50,13 @@ In order to draw emoji, you will need to use a TTF - True Type Font. I strongly 
   * Alignment support
   * Font size support
 
+## Supported versions
+
+  * Ruby 2.1, 2.2, 2.3
+  * Prawn 1.3, 2.0.2
+
+See https://travis-ci.org/hidakatsuya/prawn-emoji.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hidakatsuya/prawn-emoji.
