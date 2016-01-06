@@ -10,7 +10,7 @@ describe Prawn::Emoji::Drawable do
   describe '#draw_text!' do
     it 'calls Emoji::Drawer#draw before processing self' do
       any_instance_of(Prawn::Emoji::Drawer) do |drawer|
-        stub(drawer).draw('text', { option: 'value' }).once
+        mock(drawer).draw('text', { option: 'value' }).once
       end
       document_test.draw_text!('text', option: 'value')
     end
