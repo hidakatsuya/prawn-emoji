@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-In order to run the following code, you will need to place both [DejaVuSans.ttf](http://sourceforge.net/projects/dejavu/) and [ipag.ttf](http://ipafont.ipa.go.jp/old/ipafont/download.html) in the same directory as the script file.
+In order to run the following code, you need to place both [DejaVuSans.ttf](http://sourceforge.net/projects/dejavu/) and [ipag.ttf](http://ipafont.ipa.go.jp/old/ipafont/download.html) in the same directory as the script file.
 
 ```ruby
 require 'prawn'
@@ -41,9 +41,9 @@ end
 ```
 
 
-### CAUTION
+### IMPORTANT
 
-In order to draw emoji, you will need to use a TTF - True Type Font. I strongly recommended you use a Japanese font.
+In order to draw emoji, you must use a TTF - True Type Font. I recommend you use a Japanese font.
 
 ## Feature
 
