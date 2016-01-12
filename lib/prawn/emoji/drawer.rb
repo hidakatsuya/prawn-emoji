@@ -11,6 +11,9 @@ module Prawn
       end
 
       def draw(text, text_options)
+        # Skip if text encoding is not UTF-8.
+        return text unless text.encoding == ::Encoding::UTF_8
+
         draw_emoji(text, text_options)
       end
 
