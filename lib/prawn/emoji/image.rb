@@ -11,8 +11,14 @@ module Prawn
         @unicode = unicode
       end
 
-      def path
-        STORE.join("#{codepoint}.png").to_s
+      def path(size = 'px64')
+        emoji = Prawn::EmojidexEmoji::collection.find_by_unicode codepoint
+        "#{Prawn::EmojidexEmoji::cache_path}/#{size}/#{emoji.code}.png"
+      end
+
+      def svg_path
+        emoji = Prawn::EmojidexEmoji::collection.find_by_unicode codepoint
+        "#{Prawn::EmojidexEmoji::cache_path}/#{emoji.code}.svg"
       end
 
       def ==(other)
