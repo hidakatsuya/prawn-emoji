@@ -25,5 +25,15 @@ module Prawn
     def self.collection
       @utf
     end
+
+    def self.unicodes
+      return @unicodes unless @unicodes.nil?
+
+      @unicodes = []
+      @utf.each do |emoji|
+        @unicodes << emoji.unicode
+      end
+      @unicodes
+    end
   end
 end

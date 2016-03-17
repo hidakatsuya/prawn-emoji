@@ -8,6 +8,8 @@ Prawn::EmojidexEmoji::cache
 
 Prawn::Document.generate 'foo.pdf' do
   font 'fonts/DejaVuSans.ttf'
-  text 'Hello'
   text '🍣'
+  text 'Hello'
+
+  text '🇯🇵'
 end

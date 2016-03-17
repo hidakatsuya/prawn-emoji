@@ -2,7 +2,7 @@ module Prawn
   module Emoji
     class Index
       def unicodes
-        @unicodes ||= YAML.load Emoji.root.join('emoji', 'index.yml').read
+        Prawn::EmojidexEmoji.unicodes
       end
 
       def unicodes_regexp
@@ -12,7 +12,15 @@ module Prawn
       private
 
       def build_unicodes_regexp
-        Regexp.compile unicodes.map { |unicode| "\\u{#{unicode}}" }.join('|')
+        str = unicodes.map do |unicode|
+          if unicode.include?('-')
+            unicode_array = unicode.split('-')
+            "\\u{#{unicode_array[0]}}-\\u{#{unicode_array[1]}}"
+          else
+            "\\u{#{unicode}}"
+          end
+        end.join('|')
+        Regexp.compile str
       end
     end
   end

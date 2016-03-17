@@ -20,6 +20,7 @@ module Prawn
       private
 
       def draw_emoji(text, text_options)
+        # TODO: 国旗などサロゲートペアの場合
         left_text, emoji_unicode, remaining_text = text.partition(@emoji_index.unicodes_regexp)
 
         return text if emoji_unicode.empty?
