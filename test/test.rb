@@ -1,5 +1,4 @@
 require 'prawn'
-# require 'prawn-svg'
 require 'prawn/emoji'
 require 'prawn/emojidex'
 
@@ -10,6 +9,5 @@ Prawn::Document.generate 'foo.pdf' do
   font 'fonts/DejaVuSans.ttf'
   text '🍣'
   text 'Hello'
-
   text '🇯🇵'
 end

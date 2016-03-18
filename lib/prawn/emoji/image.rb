@@ -16,11 +16,6 @@ module Prawn
         "#{Prawn::EmojidexEmoji::cache_path}/#{size}/#{emoji.code}.png"
       end
 
-      def svg_path
-        emoji = Prawn::EmojidexEmoji::collection.find_by_unicode codepoint
-        "#{Prawn::EmojidexEmoji::cache_path}/#{emoji.code}.svg"
-      end
-
       def ==(other)
         unicode == other.unicode
       end
