@@ -65,6 +65,14 @@ See https://travis-ci.org/hidakatsuya/prawn-emoji.
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hidakatsuya/prawn-emoji.
 
+### How to update `emoji/index.yml`
+
+If you update emoji image in `emoji/images`, you need to update `emoji/index.yml` to run the following task:
+
+```
+$ bundle exec rake emoji:generate_index
+```
+
 ## Credit
 
 ### Emoji One
