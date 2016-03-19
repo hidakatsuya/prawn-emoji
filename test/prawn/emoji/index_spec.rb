@@ -13,6 +13,6 @@ describe Prawn::Emoji::Index do
     subject { index.unicodes_regexp }
     before  { stub(index).unicodes { %w( 00A9 00AE ) } }
 
-    it { subject.must_equal /\u{00A9}|\u{00AE}/ }
+    it { subject.must_equal(/\u{00A9}|\u{00AE}/) }
   end
 end
