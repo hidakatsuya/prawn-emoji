@@ -1,3 +1,7 @@
+## master
+
+ * Support only Prawn 2.1 or higher (drop support for 2.0 and 1.3)
+
 ## 1.0.2
 
  * Fixed: © \u{00a9} is not rendered (commit: 32d55b0)
