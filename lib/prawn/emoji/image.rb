@@ -23,7 +23,13 @@ module Prawn
       private
 
       def codepoint
-        @codepoint ||= @unicode.codepoints.map { |c| c.to_s(16) }.join.upcase
+        return @codepoint unless @codepoint.nil?
+
+        if @unicode.length > 2
+          @codepoint = "#{@unicode[0..-2]}-#{@unicode[-1].codepoints[0].to_s(16)}"
+        else
+          @codepoint = @unicode.codepoints.map { |c| c.to_s(16) }.join('-')
+        end
       end
     end
   end
