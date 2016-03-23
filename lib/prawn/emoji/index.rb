@@ -31,11 +31,7 @@ module Prawn
       end
 
       def build_surrogate_pair
-        @surrogate_pair = []
-        unicodes.each do |unicode|
-          @surrogate_pair << unicode if unicode.include?('-')
-        end
-        @surrogate_pair
+        @surrogate_pair = unicodes.select { |unicode| unicode.include?('-') }
       end
     end
   end

@@ -4,16 +4,13 @@ require 'emojidex-rasters'
 module Prawn
   module EmojidexEmoji
     def self.init_emojidex(cache_path = Emojidex::Defaults::system_cache_path)
-      if File.exist?("#{cache_path}/emoji/emoji.json")
-        options = {cache_path: cache_path, local_load_path: "#{cache_path}/emoji"}
-      else
-        options = {cache_path: cache_path}
-      end
+      options = { cache_path: cache_path }
+      options[:local_load_path] = "#{cache_path}/emoji" if File.exist?("#{cache_path}/emoji/emoji.json")
       @utf = Emojidex::Data::UTF.new options
     end
 
     def self.cache(formats = [:png], sizes = [:px64], cache_path = Emojidex::Defaults::system_cache_path)
-      @utf.cache!({formats: formats, sizes: sizes, cache_path: cache_path})
+      @utf.cache!({ formats: formats, sizes: sizes, cache_path: cache_path })
     end
 
     def self.cache_path
@@ -25,13 +22,11 @@ module Prawn
     end
 
     def self.unicodes
-      return @unicodes unless @unicodes.nil?
+      @unicodes ||= build_unicodes
+    end
 
-      @unicodes = []
-      @utf.each do |emoji|
-        @unicodes << emoji.unicode
-      end
-      @unicodes
+    def self.build_unicodes
+      @unicodes = @utf.map { |emoji| emoji.unicode }
     end
   end
 end

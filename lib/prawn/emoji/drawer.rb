@@ -30,9 +30,9 @@ module Prawn
             emoji_unicode = "#{emoji_unicode}#{next_emoji_unicode}"
             remaining_text = get_next_remaining_text(remaining_text)
           end
-        elsif check_digit_emoji(left_text, emoji_unicode)
-          emoji_unicode = "#{get_digit_emoji_unicode(left_text[-1])}#{emoji_unicode}"
-          left_text = get_left_text(left_text)
+        elsif !left_text.empty? && check_digit_emoji(left_text, emoji_unicode)
+          emoji_unicode = "#{left_text[-1]}#{emoji_unicode}"
+          left_text = left_text[0..-2]
         end
 
         emoji_image = Emoji::Image.new(emoji_unicode)
@@ -52,8 +52,7 @@ module Prawn
       end
 
       def emoji_to_string(unicode)
-        array = unicode.codepoints.map{|v| v.to_s(16)}
-        array[0]
+        unicode.codepoints.map{|c| c.to_s(16)}[0]
       end
 
       def check_next_emoji_unicode(text)
@@ -72,28 +71,11 @@ module Prawn
       end
 
       def check_surrogate_pair(high, low)
-        pair_str = "#{emoji_to_string(high)}-#{emoji_to_string(low)}"
-        @emoji_index.surrogate_pair.include?(pair_str)
+        @emoji_index.surrogate_pair.include?("#{emoji_to_string(high)}-#{emoji_to_string(low)}")
       end
 
       def check_digit_emoji(high, low)
-        ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '#'].include?(high[-1]) && emoji_to_string(low) == '20e3'
-      end
-
-      def get_digit_emoji_unicode(text)
-        if text == '#'
-          '0023'
-        else
-          "003#{text}"
-        end
-      end
-
-      def get_left_text(left_text)
-        if left_text.length == 1
-          ''
-        else
-          left_text[0..-2]
-        end
+        '0123456789#'.include?(high[-1]) && emoji_to_string(low) == '20e3'
       end
     end
   end

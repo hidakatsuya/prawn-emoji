@@ -23,13 +23,13 @@ module Prawn
       private
 
       def codepoint
-        return @codepoint unless @codepoint.nil?
+        @codepoint ||= build_codepoint
+      end
 
-        if @unicode.length > 2
-          @codepoint = "#{@unicode[0..-2]}-#{@unicode[-1].codepoints[0].to_s(16)}"
-        else
-          @codepoint = @unicode.codepoints.map { |c| c.to_s(16) }.join('-')
-        end
+      def build_codepoint
+        @codepoint = @unicode.codepoints.map do |c|
+          c.to_s(16).length == 2 ? "00#{c.to_s(16)}" : c.to_s(16)
+        end.join('-')
       end
     end
   end
