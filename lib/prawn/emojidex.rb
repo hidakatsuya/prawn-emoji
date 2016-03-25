@@ -9,8 +9,8 @@ module Prawn
       @utf = Emojidex::Data::UTF.new options
     end
 
-    def self.cache(formats = [:png], sizes = [:px64], cache_path = Emojidex::Defaults::system_cache_path)
-      @utf.cache!({ formats: formats, sizes: sizes, cache_path: cache_path })
+    def self.cache(formats = [:png], sizes = [:px64])
+      @utf.cache!({ formats: formats, sizes: sizes })
     end
 
     def self.cache_path
