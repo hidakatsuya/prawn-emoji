@@ -9,7 +9,7 @@ describe Prawn::Emoji::Drawable do
 
   describe '#draw_text!' do
     it 'calls Emoji::Drawer#draw before processing self' do
-      any_instance_of(Prawn::Emoji::Drawer) do |drawer|
+      allow_any_instance_of(Prawn::Emoji::Drawer) do |drawer|
         mock(drawer).draw('text', { option: 'value' }).once
       end
       document_test.draw_text!('text', option: 'value')
@@ -18,6 +18,6 @@ describe Prawn::Emoji::Drawable do
 
   describe '#emoji_drawer' do
     subject { document_test.send :emoji_drawer }
-    it { subject.must_be_instance_of Prawn::Emoji::Drawer }
+    it { expect(subject).to be_instance_of Prawn::Emoji::Drawer }
   end
 end

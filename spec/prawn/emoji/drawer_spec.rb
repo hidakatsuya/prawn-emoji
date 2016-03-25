@@ -8,7 +8,7 @@ describe Prawn::Emoji::Drawer do
   let(:sushi_image) { Prawn::Emoji::Image.new(sushi) }
 
   before do
-    document.font Prawn::Emoji.root.join 'test', 'fonts', 'DejaVuSans.ttf'
+    document.font Prawn::Emoji.root.join 'spec', 'fonts', 'DejaVuSans.ttf'
   end
 
   describe '#draw' do

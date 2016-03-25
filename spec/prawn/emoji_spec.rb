@@ -47,13 +47,12 @@ describe 'Prawn integration' do
 
   def assert_properly_render_text(pdf)
     pdf_strings = extract_strings(pdf.render)
-
-    pdf_strings.must_include "sushi#{nbsp * 3}teacup#{nbsp * 3}"
-    pdf_strings.must_include "寿司　お茶　"
+    expect(pdf_strings).to include "sushi#{nbsp * 3}teacup#{nbsp * 3}"
+    expect(pdf_strings).to include "寿司　お茶　"
   end
 
   def font_path(name)
-    Prawn::Emoji.root.join 'test', 'fonts', name
+    Prawn::Emoji.root.join 'spec', 'fonts', name
   end
 
   def extract_strings(pdf)

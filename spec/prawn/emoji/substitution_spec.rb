@@ -9,18 +9,18 @@ describe Prawn::Emoji::Substitution do
   describe 'full-size-space is used' do
     before do
       document.font_size = 12
-      stub(substitution).full_size_space_width { 12 }
+      allow(substitution).to receive(:full_size_space_width).and_return(12)
     end
 
-    it { subject.must_equal '　' }
+    it { expect(subject).to eq '　' }
   end
 
   describe 'half-size-space is used' do
     before do
       document.font_size = 12
-      stub(substitution).full_size_space_width { 11.99 }
+      allow(substitution).to receive(:full_size_space_width).and_return(11.9)
     end
 
-    it { subject.must_equal Prawn::Text::NBSP }
+    it { expect(subject).to eq Prawn::Text::NBSP }
   end
 end

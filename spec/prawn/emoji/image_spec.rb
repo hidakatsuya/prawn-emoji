@@ -4,6 +4,6 @@ describe Prawn::Emoji::Image do
   describe '#path' do
     subject { Prawn::Emoji::Image.new('😀').path }
 
-    it { subject.must_equal Prawn::Emoji.root.join('emoji', 'images', '1F600.png').to_s }
+    it { expect(subject).to eq "#{spec_cache_path}/emoji/px64/grinning.png" }
   end
 end
