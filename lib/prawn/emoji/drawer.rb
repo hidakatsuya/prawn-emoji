@@ -52,7 +52,7 @@ module Prawn
       end
 
       def emoji_to_string(unicode)
-        unicode.codepoints.map{|c| c.to_s(16)}[0]
+        unicode.codepoints.map { |c| c.to_s(16) } [0]
       end
 
       def check_next_emoji_unicode(text)

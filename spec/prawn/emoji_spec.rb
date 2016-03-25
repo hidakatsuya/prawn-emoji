@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe 'Prawn integration' do
   describe 'Prawn::Document#text' do

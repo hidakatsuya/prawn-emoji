@@ -2,7 +2,7 @@ module Prawn
   module Emoji
     class Index
       def unicodes
-        Prawn::EmojidexEmoji.unicodes
+        EmojidexEmoji.unicodes
       end
 
       def unicodes_regexp

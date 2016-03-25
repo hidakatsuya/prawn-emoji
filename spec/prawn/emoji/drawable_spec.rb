@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Prawn::Emoji::Drawable do
   class DocumentTest

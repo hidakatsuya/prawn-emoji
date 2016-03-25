@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'spec_helper'
 
 describe Prawn::Emoji::Drawer do
   let(:document) { Prawn::Document.new }

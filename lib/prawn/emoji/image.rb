@@ -12,8 +12,8 @@ module Prawn
       end
 
       def path(size = 'px64')
-        emoji = Prawn::EmojidexEmoji::collection.find_by_unicode codepoint
-        "#{Prawn::EmojidexEmoji::cache_path}/#{size}/#{emoji.code}.png"
+        emoji = EmojidexEmoji::collection.find_by_unicode codepoint
+        "#{EmojidexEmoji::cache_path}/#{size}/#{emoji.code}.png"
       end
 
       def ==(other)
