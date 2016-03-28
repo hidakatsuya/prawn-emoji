@@ -18,7 +18,7 @@ describe Prawn::Emoji::Drawer do
       let(:text) { "\xe8\x8a\xb1".force_encoding('ascii-8bit') }
 
       it 'skip' do
-        mock(drawer).draw_emoji(text, {}).never
+        expect(drawer).not_to receive(:draw_emoji)
         subject
       end
     end
@@ -27,7 +27,7 @@ describe Prawn::Emoji::Drawer do
       let(:text) { "\xe8\x8a\xb1" }
 
       it 'performs' do
-        mock(drawer).draw_emoji(text, {}).once
+        expect(drawer).to receive(:draw_emoji).once
         subject
       end
     end
@@ -41,7 +41,7 @@ describe Prawn::Emoji::Drawer do
       let(:text) { 'abc' }
 
       it 'returns original text' do
-        subject.must_be_same_as text
+        expect(subject).to eq text
       end
     end
 
@@ -52,12 +52,12 @@ describe Prawn::Emoji::Drawer do
         image_width = 12
         image_at    = [100 + document.width_of('aaa', text_options), 100 + 12]
 
-        mock(drawer).draw_emoji_image(sushi_image, at: image_at, width: image_width).once
+        expect(drawer).to receive(:draw_emoji_image).with(sushi_image, at: image_at, width: image_width).once
         subject
       end
 
       it 'returns text that all emoji has substituted' do
-        subject.must_equal "aaa#{Prawn::Emoji::Substitution.new(document)}bbb"
+        expect(subject).to eq "aaa#{Prawn::Emoji::Substitution.new(document)}bbb"
       end
     end
   end
@@ -66,7 +66,7 @@ describe Prawn::Emoji::Drawer do
     subject { drawer.send :draw_emoji_image, sushi_image, at: [100, 100], width: 12 }
 
     it 'calls Prawn::Document#image with valid arguments' do
-      mock(document).image(sushi_image.path, at: [100, 100], width: 12).once
+      expect(document).to receive(:image).with(sushi_image.path, at: [100, 100], width: 12).once
       subject
     end
   end
