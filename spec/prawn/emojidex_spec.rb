@@ -19,6 +19,6 @@ describe 'use emojidex emoji' do
   end
 
   it 'get emojidex unicodes' do
-    expect(Prawn::EmojidexEmoji.unicodes.include?(@sushi[:unicode])).to be_truthy
+    expect(Prawn::EmojidexEmoji.unicodes).to include @sushi[:unicode]
   end
 end

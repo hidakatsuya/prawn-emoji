@@ -14,6 +14,11 @@ describe Prawn::Emoji::Index do
     subject { index.unicodes_regexp }
     before { allow(index).to receive(:unicodes).and_return(%w( 00A9 00AE )) }
 
-    it { expect(subject).to eq /\u{00A9}|\u{00AE}/ }
+    it { expect(subject).to match /\u{00A9}|\u{00AE}/ }
+  end
+
+  describe '#surrogate_pair' do
+    subject { index.surrogate_pair }
+    it { expect(subject).to include '1f600-1f3fb' }
   end
 end

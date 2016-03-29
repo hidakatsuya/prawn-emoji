@@ -7,6 +7,16 @@ describe Prawn::Emoji::Drawer do
   let(:sushi)  { '🍣' }
   let(:sushi_image) { Prawn::Emoji::Image.new(sushi) }
 
+  let(:jp) { '🇯🇵' }
+  let(:jp_image) { Prawn::Emoji::Image.new(jp) }
+  let(:face) { '😀🏻' }
+  let(:face_image) { Prawn::Emoji::Image.new(face) }
+  let(:digit) { '0️⃣' }
+  # let(:digit) { '2⃣' }
+  let(:digit_image) { Prawn::Emoji::Image.new(digit) }
+
+  let(:text_options) { { at: [100, 100], font_size: 12 } }
+
   before do
     document.font Prawn::Emoji.root.join 'spec', 'fonts', 'DejaVuSans.ttf'
   end
@@ -35,7 +45,6 @@ describe Prawn::Emoji::Drawer do
 
   describe '#draw_emoji' do
     subject { drawer.send :draw_emoji, text, text_options }
-    let(:text_options) { { at: [100, 100], font_size: 12 } }
 
     describe 'when not includes emoji' do
       let(:text) { 'abc' }
@@ -46,7 +55,7 @@ describe Prawn::Emoji::Drawer do
     end
 
     describe 'when includes emoji' do
-      let(:text) { "aaa#{sushi}bbb"}
+      let(:text) { "aaa#{sushi}bbb" }
 
       it 'draws image for included emoji' do
         image_width = 12
@@ -68,6 +77,23 @@ describe Prawn::Emoji::Drawer do
     it 'calls Prawn::Document#image with valid arguments' do
       expect(document).to receive(:image).with(sushi_image.path, at: [100, 100], width: 12).once
       subject
+    end
+  end
+
+  describe 'draw surrogate-pair emoji' do
+    it 'jp' do
+      expect(document).to receive(:image).with(jp_image.path, at: [100, 100], width: 12).once
+      drawer.send :draw_emoji_image, jp_image, at: [100, 100], width: 12
+    end
+
+    it 'face' do
+      expect(document).to receive(:image).with(face_image.path, at: [100, 100], width: 12).once
+      drawer.send :draw_emoji_image, face_image, at: [100, 100], width: 12
+    end
+
+    it 'digit' do
+      expect(document).to receive(:image).with(digit_image.path, at: [100, 100], width: 12).once
+      drawer.send :draw_emoji_image, digit_image, at: [100, 100], width: 12
     end
   end
 end
