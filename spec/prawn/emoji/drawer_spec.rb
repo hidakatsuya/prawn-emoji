@@ -7,12 +7,11 @@ describe Prawn::Emoji::Drawer do
   let(:sushi)  { '🍣' }
   let(:sushi_image) { Prawn::Emoji::Image.new(sushi) }
 
-  let(:jp) { '🇯🇵' }
-  let(:jp_image) { Prawn::Emoji::Image.new(jp) }
+  let(:flag) { '🇯🇵' }
+  let(:flag_image) { Prawn::Emoji::Image.new(flag) }
   let(:face) { '😀🏻' }
   let(:face_image) { Prawn::Emoji::Image.new(face) }
-  let(:digit) { '0️⃣' }
-  # let(:digit) { '2⃣' }
+  let(:digit) { '1⃣' }
   let(:digit_image) { Prawn::Emoji::Image.new(digit) }
 
   let(:text_options) { { at: [100, 100], font_size: 12 } }
@@ -81,12 +80,12 @@ describe Prawn::Emoji::Drawer do
   end
 
   describe 'draw surrogate-pair emoji' do
-    it 'jp' do
-      expect(document).to receive(:image).with(jp_image.path, at: [100, 100], width: 12).once
-      drawer.send :draw_emoji_image, jp_image, at: [100, 100], width: 12
+    it 'flag' do
+      expect(document).to receive(:image).with(flag_image.path, at: [100, 100], width: 12).once
+      drawer.send :draw_emoji_image, flag_image, at: [100, 100], width: 12
     end
 
-    it 'face' do
+    it 'variation of the race' do
       expect(document).to receive(:image).with(face_image.path, at: [100, 100], width: 12).once
       drawer.send :draw_emoji_image, face_image, at: [100, 100], width: 12
     end
