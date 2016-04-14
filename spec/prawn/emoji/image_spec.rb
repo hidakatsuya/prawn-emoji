@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 describe Prawn::Emoji::Image do
-  describe '#path' do
-    subject { Prawn::Emoji::Image.new('😀').path }
+  let(:emojis) { %w( 😀 © ) }
 
-    it { expect(subject).to eq "#{spec_cache_path}/emoji/px64/grinning.png" }
+  it 'possible to find the image file' do
+    emojis.each do |emoji|
+      emoji_image = Prawn::Emoji::Image.new(emoji)
+      expect(File.exist?(emoji_image.path)).to be_truthy
+    end
   end
 end

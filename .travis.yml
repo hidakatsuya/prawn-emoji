@@ -8,7 +8,10 @@ rvm:
   - 2.3.0
 
 gemfile:
-  - test/gemfiles/prawn-1.3
-  - test/gemfiles/prawn-2.0
+  - test/gemfiles/prawn-2.1
 
 script: bundle exec rspec
+
+branches:
+  only:
+    - master
