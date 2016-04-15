@@ -1,9 +1,5 @@
 require 'prawn'
 require 'prawn/emoji'
-require 'prawn/emojidex'
-
-Prawn::EmojidexEmoji::init_emojidex
-Prawn::EmojidexEmoji::cache
 
 Prawn::Document.generate 'foo.pdf' do
   font File.expand_path('../fonts/ipag.ttf', __FILE__)

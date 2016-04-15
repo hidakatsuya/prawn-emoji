@@ -1,5 +1,6 @@
 require 'prawn'
 require 'pathname'
+require 'prawn/emojidex'
 
 module Prawn
   module Emoji
@@ -17,3 +18,5 @@ require_relative 'emoji/version'
 require_relative 'emoji/drawable'
 
 Prawn::Document.extensions << Prawn::Emoji
+Prawn::EmojidexEmoji::init_emojidex
+Prawn::EmojidexEmoji::cache
