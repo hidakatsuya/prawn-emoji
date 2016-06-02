@@ -13,7 +13,7 @@ module Prawn
 
       def path(size = 'px64')
         emoji = EmojidexEmoji::collection.find_by_unicode codepoint
-        "#{EmojidexEmoji::cache_path}/#{size}/#{emoji.code}.png"
+        "#{EmojidexEmoji::source_path}/#{size}/#{emoji.code}.png"
       end
 
       def ==(other)

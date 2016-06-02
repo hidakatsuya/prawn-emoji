@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Katsuya HIDAKA']
   spec.email         = ['hidakatsuya@gmail.com']
 
-  spec.summary       = 'Provides support for Emoji in Prawn'
-  spec.description   = 'Prawn::Emoji is an extention for Prawn, provides feature for drawing Emoji.'
+  spec.summary       = 'Provides support for emoji in Prawn'
+  spec.description   = 'Prawn::Emoji is an extention for Prawn, provides feature for drawing emoji.'
   spec.homepage      = 'https://github.com/hidakatsuya/prawn-emoji'
   spec.license       = 'MIT'
   spec.platform      = Gem::Platform::RUBY
@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'prawn', '>= 2.1.0'
   spec.add_runtime_dependency 'emojidex', '>= 0.3.4'
+  spec.add_runtime_dependency 'emojidex-rasters'
 
   spec.add_development_dependency 'bundler', '>= 1.0.0'
   spec.add_development_dependency 'rake'

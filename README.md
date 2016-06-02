@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/prawn-emoji.svg)](https://badge.fury.io/rb/prawn-emoji)
 [![Build Status](https://travis-ci.org/hidakatsuya/prawn-emoji.svg)](https://travis-ci.org/hidakatsuya/prawn-emoji)
 
-Prawn::Emoji is an extention for [Prawn](https://github.com/prawnpdf/prawn), provides feature for drawing Emoji.
+Prawn::Emoji is an extention for [Prawn](https://github.com/prawnpdf/prawn), provides feature for drawing emoji.
 
 ## Installation
 
@@ -11,8 +11,6 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'prawn-emoji', require: false
-# To bundle emoji assets locally uncomment the following line:
-# gem 'emojidex-rasters'
 ```
 
 And then execute:
@@ -52,7 +50,7 @@ In order to draw emoji, you must use a TTF - True Type Font. I recommend you use
   * [Over 2300 emoji](https://www.emojidex.com/users/emoji) support provided by emojidex
   * Includes modifier variant and Unicode candidate emoji
   * RTL support
-  * Character specing support
+  * Character spacing support
   * Rotation support
   * Alignment support
   * Font size support

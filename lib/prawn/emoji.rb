@@ -19,4 +19,3 @@ require_relative 'emoji/drawable'
 
 Prawn::Document.extensions << Prawn::Emoji
 Prawn::EmojidexEmoji::init_emojidex
-Prawn::EmojidexEmoji::cache
