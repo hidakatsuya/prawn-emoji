@@ -11,6 +11,8 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'prawn-emoji', require: false
+# To bundle emoji assets locally uncomment the following line:
+# gem 'emojidex-rasters'
 ```
 
 And then execute:
@@ -47,7 +49,8 @@ In order to draw emoji, you must use a TTF - True Type Font. I recommend you use
 
 ## Feature
 
-  * [Over 1600 emoji](http://emojione.com) support provided by Emoji One
+  * [Over 2300 emoji](https://www.emojidex.com/users/emoji) support provided by emojidex
+  * Includes modifier variant and Unicode candidate emoji
   * RTL support
   * Character specing support
   * Rotation support
@@ -72,19 +75,11 @@ INFO: Version 1.x supports Prawn 1.3 and 2.0. See [README in 1.0-stable branch](
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hidakatsuya/prawn-emoji.
 
-### How to update `emoji/index.yml`
-
-If you update emoji image in `emoji/images`, you need to update `emoji/index.yml` to run the following task:
-
-```
-$ bundle exec rake emoji:generate_index
-```
-
 ## Credit
 
-### Emoji One
+### emojidex
 
-Emoji provided free by [Emoji One](http://emojione.com/).
+emoji provided free by [emojidex](https://www.emojidex.com/) under the emojidex Open License.
 
 ### IPA Font
 
