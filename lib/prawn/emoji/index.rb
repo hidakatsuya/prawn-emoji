@@ -19,14 +19,12 @@ module Prawn
         low_unicodes = []
         array = unicodes.map do |unicode|
           if unicode.include?('-')
-            unicode_array = unicode.split('-')
-            low_unicodes << "\\u{#{unicode_array[1]}}"
-            "\\u{#{unicode_array[0]}}-\\u{#{unicode_array[1]}}"
+            multi_symbol = unicode.split('-')
+            "\\u{#{multi_symbol[0]}}-\\u{#{multi_symbol[1]}}"
           else
             "\\u{#{unicode}}"
           end
         end
-        array = array.concat(low_unicodes).uniq
         Regexp.compile array.join('|')
       end
 
