@@ -5,10 +5,7 @@ sudo: false
 rvm:
   - 2.1.8
   - 2.2.4
-  - 2.3.0
-
-gemfile:
-  - spec/gemfiles/prawn-2.1
+  - 2.3.1
 
 script: bundle exec rspec
 
