@@ -22,7 +22,7 @@ module Prawn
       private
 
       def codepoint
-        @codepoint ||= @unicode.codepoints.map { |c| '%04x' % c.to_s }.join.upcase
+        @codepoint ||= @unicode.codepoints.map { |c| '%04x' % c.to_s }.join('-').downcase
       end
     end
   end
