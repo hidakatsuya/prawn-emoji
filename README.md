@@ -47,9 +47,10 @@ In order to draw emoji, you must use a TTF - True Type Font. I recommend you use
 
 ## Feature
 
-  * [Over 1600 emoji](http://emojione.com) support provided by Emoji One
+  * Emoji is provided by EmojiOne http://emojione.com
+  * Multi-character emoji support
   * RTL support
-  * Character specing support
+  * Character spacing support
   * Rotation support
   * Alignment support
   * Font size support
