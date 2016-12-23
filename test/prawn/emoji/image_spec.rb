@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Prawn::Emoji::Image do
-  let(:emojis) { %w( 😀 © ) }
+  let(:emojis) { %w( 😀 © 🇯🇵 ) }
 
   it 'possible to find the image file' do
     emojis.each do |emoji|

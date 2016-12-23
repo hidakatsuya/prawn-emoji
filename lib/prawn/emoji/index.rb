@@ -12,7 +12,7 @@ module Prawn
       private
 
       def build_unicodes_regexp
-        Regexp.compile unicodes.map { |unicode| "\\u{#{unicode}}" }.join('|')
+        Regexp.compile unicodes.map { |unicode| "\\u{#{unicode.split('-').join(' ')}}" }.join('|')
       end
     end
   end
