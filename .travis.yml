@@ -15,3 +15,4 @@ script: bundle exec rake test
 branches:
   only:
     - master
+    - /\-stable$/
