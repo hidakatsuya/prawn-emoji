@@ -11,8 +11,8 @@ describe Prawn::Emoji::Index do
 
   describe '#unicodes_regexp' do
     subject { index.unicodes_regexp }
-    before  { stub(index).unicodes { %w( 00A9 00AE ) } }
+    before  { stub(index).unicodes { %w( 00a9 00ae 002a-20e3 ) } }
 
-    it { subject.must_equal(/\u{00A9}|\u{00AE}/) }
+    it { subject.must_equal(/\u{00a9}|\u{00ae}|\u{002a 20e3}/) }
   end
 end
