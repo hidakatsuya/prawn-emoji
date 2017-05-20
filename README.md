@@ -65,7 +65,7 @@ See also https://travis-ci.org/hidakatsuya/prawn-emoji.
 
 ### Prawn
 
-2.1
+2.1, 2.2
 
 INFO: Version 1.x supports Prawn 1.3 and 2.0. See [README in 1.0-stable branch](https://github.com/hidakatsuya/prawn-emoji/blob/1.0-stable/README.md).
 
