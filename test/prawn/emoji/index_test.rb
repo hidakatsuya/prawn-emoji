@@ -6,7 +6,12 @@ describe Prawn::Emoji::Index do
 
   describe '#unicodes' do
     subject { index.unicodes }
-    it { subject.must_equal YAML.load Prawn::Emoji.root.join('emoji', 'index.yml').read }
+
+    let(:all_codes) { YAML.load_file(Prawn::Emoji.root.join('emoji', 'index.yml')) }
+    # Expect to excludes ASCII characters and symbols
+    let(:exclusion_codes) { (0x21..0x7e).map { |code| '%04x' % code }.map(&:downcase) }
+
+    it { subject.must_equal all_codes - exclusion_codes }
   end
 
   describe '#unicodes_regexp' do
