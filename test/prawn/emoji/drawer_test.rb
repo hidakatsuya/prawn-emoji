@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 describe Prawn::Emoji::Drawer do
@@ -15,7 +17,7 @@ describe Prawn::Emoji::Drawer do
     subject { drawer.draw(text, {}) }
 
     describe 'when text encoding is not utf-8' do
-      let(:text) { "\xe8\x8a\xb1".force_encoding('ascii-8bit') }
+      let(:text) { 'a'.encode('ascii-8bit') }
 
       it 'skip' do
         mock(drawer).draw_emoji(text, {}).never

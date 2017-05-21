@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'substitution'
 require_relative 'index'
 require_relative 'image'
