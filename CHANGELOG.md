@@ -1,3 +1,9 @@
+## 2.0.1
+
+### Bug Fixes:
+
+ * Fixed: part of ASCII chars and symbols is unexpectedly replaced with emojis #17 [@juanfal]
+
 ## 2.0.0
 
  * prawn-emoji requires Prawn 2.1 or higher
