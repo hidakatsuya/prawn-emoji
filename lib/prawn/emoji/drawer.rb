@@ -20,7 +20,7 @@ module Prawn
       private
 
       def draw_emoji(text, text_options)
-        left_text, emoji_unicode, remaining_text = text.partition(@emoji_index.unicodes_regexp)
+        left_text, emoji_unicode, remaining_text = text.partition(@emoji_index.to_regexp)
 
         return text if emoji_unicode.empty?
 
