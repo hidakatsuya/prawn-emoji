@@ -13,8 +13,3 @@ gemfile:
   - test/gemfiles/prawn-2.2
 
 script: bundle exec rake test
-
-branches:
-  only:
-    - master
-    - /\-stable$/
