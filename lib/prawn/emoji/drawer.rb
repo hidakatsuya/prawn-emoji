@@ -23,6 +23,8 @@ module Prawn
 
       def draw_emoji(text, text_options)
         left_text, emoji_unicode, remaining_text = text.partition(@emoji_index.to_regexp)
+        # Delete variation selector character
+        remaining_text.delete!("\ufe0f")
 
         return text if emoji_unicode.empty?
 
