@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
+require_relative 'unicode'
 
 module Prawn
   module Emoji
@@ -10,21 +11,15 @@ module Prawn
       attr_reader :unicode
 
       def initialize(unicode)
-        @unicode = unicode
+        @unicode = Emoji::Unicode.new(unicode)
       end
 
       def path
-        STORE.join("#{codepoint}.png").to_s
+        STORE.join("#{unicode.codepoint}.png").to_s
       end
 
       def ==(other)
         unicode == other.unicode
-      end
-
-      private
-
-      def codepoint
-        @codepoint ||= @unicode.codepoints.map { |c| '%04x' % c.to_s }.join('-').downcase
       end
     end
   end
