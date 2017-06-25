@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'unicode'
-
 module Prawn
   module Emoji
     class Index
@@ -20,8 +18,7 @@ module Prawn
       private
 
       def build_regexp
-        emojis = codepoints.map { |codepoint| unicode(codepoint) }.join('|')
-        Regexp.new("(#{emojis})[#{Emoji::Unicode::VARIATION_SELECTORS.join}]?")
+        Regexp.new(codepoints.map { |codepoint| unicode(codepoint) }.join('|'))
       end
 
       def load_emoji_codepoints

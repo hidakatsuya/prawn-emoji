@@ -20,6 +20,6 @@ describe Prawn::Emoji::Index do
     subject { index.to_regexp }
     before  { stub(index).codepoints { %w( 00a9 00ae 002a-20e3 ) } }
 
-    it { subject.must_equal(/(\u{00a9}|\u{00ae}|\u{002a 20e3})[\ufe0e\ufe0f]?/) }
+    it { subject.must_equal(/\u{00a9}|\u{00ae}|\u{002a 20e3}/) }
   end
 end
