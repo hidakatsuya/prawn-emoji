@@ -49,7 +49,7 @@ describe Prawn::Emoji::Drawer do
     end
 
     describe 'when includes emoji' do
-      let(:text) { "aaa#{sushi}bbb"}
+      let(:text) { "aaa#{sushi}bbb" }
 
       it 'draws image for included emoji' do
         image_width = 12
