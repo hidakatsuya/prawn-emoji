@@ -7,7 +7,8 @@ describe Prawn::Emoji::Drawer do
   let(:drawer) { Prawn::Emoji::Drawer.new document: document }
 
   let(:sushi)  { '🍣' }
-  let(:sushi_image) { Prawn::Emoji::Image.new(sushi) }
+  let(:sushi_unicode) { Prawn::Emoji::Unicode.new(sushi) }
+  let(:sushi_image) { Prawn::Emoji::Image.new(sushi_unicode) }
 
   before do
     document.font Prawn::Emoji.root.join 'test', 'fonts', 'DejaVuSans.ttf'
