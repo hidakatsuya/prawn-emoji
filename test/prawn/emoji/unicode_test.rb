@@ -21,16 +21,16 @@ describe Prawn::Emoji::Unicode do
   end
 
   describe '#text?' do
-    it 'has no selector' do
-      klass.new('☀').wont_be :text?
+    describe 'no selector' do
+      it { klass.new('☀').wont_be :text? }
     end
 
-    it 'has text presentation selector' do
-      klass.new('☀︎').must_be :text?
+    describe 'with text presentation selector' do
+      it { klass.new('☀︎').must_be :text? }
     end
 
-    it 'has emoji presentation selector' do
-      klass.new('☀️').wont_be :text?
+    describe 'with emoji presentation selector' do
+      it { klass.new('☀️').wont_be :text? }
     end
   end
 end
