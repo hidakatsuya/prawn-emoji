@@ -1,3 +1,11 @@
+## 2.1.0
+
+### Breaking Changes
+
+ * Support variation selector
+   * An emoji with text presentation selector such as ☀︎ (U+2600 U+FE0E) will be drawn as text
+   * See also http://www.unicode.org/reports/tr51/tr51-12.html#def_text_presentation_selector
+
 ## 2.0.1
 
 ### Bug Fixes:
