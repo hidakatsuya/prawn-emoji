@@ -38,7 +38,9 @@ describe Prawn::Emoji::Drawer do
 
   describe '#draw_emoji' do
     subject { drawer.send :draw_emoji, text, text_options }
-    let(:text_options) { { at: [100, 100], font_size: 12 } }
+
+    let(:text_options) { { at: [100, 200], font_size: 12 } }
+    let(:sub_char) { Prawn::Emoji::Substitution.new(document) }
 
     describe 'when not includes emoji' do
       let(:text) { 'abc' }
@@ -49,18 +51,23 @@ describe Prawn::Emoji::Drawer do
     end
 
     describe 'when includes emoji' do
-      let(:text) { "aaa#{sushi}bbb" }
+      let(:text) { "aaa#{sushi}bbb#{sushi}#{sushi}ccc" }
 
-      it 'draws image for included emoji' do
-        image_width = 12
-        image_at    = [100 + document.width_of('aaa', text_options), 100 + 12]
+      it 'draws alternative images for each emoji included in the text' do
+        image_x_positions = [
+          100 + document.width_of('aaa', text_options),
+          100 + document.width_of("aaa#{sub_char}bbb", text_options),
+          100 + document.width_of("aaa#{sub_char}bbb#{sub_char}", text_options)
+        ]
 
-        mock(drawer).draw_emoji_image(sushi_image, at: image_at, width: image_width).once
+        image_x_positions.each { |x|
+          mock(drawer).draw_emoji_image(sushi_image, at: [x, 200 + 12], width: 12).once
+        }
         subject
       end
 
       it 'returns text that all emoji has substituted' do
-        subject.must_equal "aaa#{Prawn::Emoji::Substitution.new(document)}bbb"
+        subject.must_equal "aaa#{sub_char}bbb#{sub_char}#{sub_char}ccc"
       end
     end
   end

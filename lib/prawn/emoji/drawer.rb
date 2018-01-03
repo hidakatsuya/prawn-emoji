@@ -25,35 +25,38 @@ module Prawn
       def draw_emoji(text, text_options)
         return text unless @emoji_index.to_regexp =~ text
 
-        result = []
-        target = text
+        result_texts = []
+        target_text = text
 
-        while target do
-          left_text, emoji_unicode, remaining_text = partition_emoji(target)
+        while target_text do
+          left_text, emoji_unicode, remaining_text = partition_emoji(target_text)
 
           if emoji_unicode.nil?
-            result << target
+            result_texts << target_text
             break
           end
 
-          result << left_text
-          result << if emoji_unicode.text?
-            emoji_unicode.to_s
-          else
-            emoji_image = Emoji::Image.new(emoji_unicode)
+          current_result_texts = [left_text]
+          current_result_texts <<
+            if emoji_unicode.text?
+              emoji_unicode.to_s
+            else
+              emoji_image = Emoji::Image.new(emoji_unicode)
 
-            emoji_x, emoji_y = text_options[:at]
-            emoji_x += @document.width_of(left_text, text_options)
-            emoji_y += @document.font_size
+              emoji_x, emoji_y = text_options[:at]
+              emoji_x += @document.width_of(result_texts.join + left_text, text_options)
+              emoji_y += @document.font_size
 
-            draw_emoji_image emoji_image, at: [emoji_x, emoji_y], width: @document.font_size
+              draw_emoji_image emoji_image, at: [emoji_x, emoji_y], width: @document.font_size
 
-            Emoji::Substitution.new(@document).to_s
-          end
-          target = remaining_text
+              Emoji::Substitution.new(@document).to_s
+            end
+
+          result_texts += current_result_texts
+          target_text = remaining_text
         end
 
-        result.join
+        result_texts.join
       end
 
       def draw_emoji_image(emoji_image, at:, width:)
