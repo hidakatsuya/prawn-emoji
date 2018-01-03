@@ -55,6 +55,10 @@ In order to draw emoji, you must use a TTF - True Type Font. I recommend you use
   * Alignment support
   * Font size support
 
+### Known Issues
+
+See [prawn-emoji/issues](https://github.com/hidakatsuya/prawn-emoji/labels/known%20issue)
+
 ## Supported versions
 
 See also https://travis-ci.org/hidakatsuya/prawn-emoji.
