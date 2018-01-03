@@ -12,4 +12,7 @@ gemfile:
   - test/gemfiles/prawn-2.1
   - test/gemfiles/prawn-2.2
 
+before_install:
+  - travis_retry gem update --system
+
 script: bundle exec rake test
