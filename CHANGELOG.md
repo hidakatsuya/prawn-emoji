@@ -1,3 +1,9 @@
+## 2.1.1
+
+### Bug Fixes:
+
+ * Fixed: A text including multiple emojis are broken #19
+
 ## 2.1.0
 
 ### Breaking Changes
