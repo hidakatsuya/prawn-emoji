@@ -90,7 +90,7 @@ $ bundle exec rake emoji:generate_index
 
 ### Emoji One
 
-Emoji provided free by [Emoji One](http://emojione.com/).
+Emoji provided free by [Emoji One](http://emojione.com/) (Version 2).
 
 ### IPA Font
 
