@@ -1,3 +1,9 @@
+## master
+
+Breaking Changes:
+
+ * Drop support ruby2.1 and 2.2
+
 ## 2.1.1
 
 ### Bug Fixes:
