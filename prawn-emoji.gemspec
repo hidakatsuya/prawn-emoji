@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'prawn', '>= 2.1.0'
 
   spec.add_development_dependency 'bundler', '>= 1.0.0'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'minitest'
-  spec.add_development_dependency 'rr'
-  spec.add_development_dependency 'pdf-inspector'
+  spec.add_development_dependency 'rake', '>= 0'
+  spec.add_development_dependency 'minitest', '>= 0'
+  spec.add_development_dependency 'rr', '>= 0'
+  spec.add_development_dependency 'pdf-inspector', '>= 1.2.0'
 end
