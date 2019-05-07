@@ -3,14 +3,12 @@
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 
-Rake::TestTask.new(:test) do |t|
+Rake::TestTask.new('test:units') do |t|
   t.libs << 'test'
   t.libs << 'lib'
-  t.test_files = FileList['test/**/*_test.rb']
+  t.test_files = FileList['test/units/**/*_test.rb']
   t.warning = false
 end
-
-task default: :test
 
 namespace :emoji do
   desc 'Generate emoji/index.yml from emoji/images'

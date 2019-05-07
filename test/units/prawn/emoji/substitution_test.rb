@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require 'units/test_helper'
 
 describe Prawn::Emoji::Substitution do
   let(:document) { Prawn::Document.new }
