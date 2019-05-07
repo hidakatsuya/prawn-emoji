@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = `git ls-files -- {test}/*`.split("\n")
   spec.require_path  = 'lib'
 
-  spec.add_runtime_dependency 'prawn', '>= 2.1.0'
+  spec.add_runtime_dependency 'prawn', '~> 2.2.0'
 
   spec.add_development_dependency 'bundler', '>= 1.0.0'
   spec.add_development_dependency 'rake', '>= 0'

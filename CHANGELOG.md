@@ -3,6 +3,7 @@
 Breaking Changes:
 
  * Drop support ruby2.1 and 2.2, 2.3
+ * prawn-emoji requires Prawn 2.2 (Drop support Prawn 2.1)
 
 ## 2.1.1
 
