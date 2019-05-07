@@ -12,4 +12,12 @@ gemfile:
   - test/gemfiles/prawn-2.1
   - test/gemfiles/prawn-2.2
 
+before_install:
+  - sudo apt-get install make automake g++ libpoppler-glib-dev poppler-utils libwxgtk3.0-dev
+  - git clone https://github.com/vslavik/diff-pdf.git /tmp/diff-pdf-src
+  - cd /tmp/diff-pdf-src
+  - ./bootstrap && ./configure && make && sudo make install
+  - diff-pdf --help
+  - cd $TRAVIS_BUILD_DIR
+
 script: bundle exec rake test
