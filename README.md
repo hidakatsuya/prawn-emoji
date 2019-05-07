@@ -78,6 +78,28 @@ INFO: Version 1.x supports Prawn 1.3 and 2.0. See [README in 1.0-stable branch](
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hidakatsuya/prawn-emoji.
 
+### How to test
+
+Run tests completely:
+
+```
+$ bundle exec rake test
+```
+
+Run unit tests:
+
+```
+$ bundle exec rake test:units
+```
+
+Run pdf tests:
+
+```
+$ bundle exec rake test:pdf
+```
+
+**NOTICE:** In order to run `test:pdf`, you need to install [diff-pdf](https://github.com/vslavik/diff-pdf) in your environment.
+
 ### How to update `emoji/index.yml`
 
 If you update emoji image in `emoji/images`, you need to update `emoji/index.yml` to run the following task:

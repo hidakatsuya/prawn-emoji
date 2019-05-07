@@ -80,6 +80,10 @@ class PdfTest < Minitest::Test
       doc.font(UNICODE_FONT) { doc.text(string, size: 10) }
     end
 
+    def raw
+      yield(doc)
+    end
+
     def render(filename)
       doc.render_file(filename.to_s)
     end

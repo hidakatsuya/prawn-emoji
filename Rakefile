@@ -13,9 +13,12 @@ end
 Rake::TestTask.new('test:pdf') do |t|
   t.libs << 'test'
   t.libs << 'lib'
-  t.test_files = FileList['test/pdf/*/test.rb']
+  t.test_files = FileList['test/pdf/*/test_case.rb']
   t.warning = false
 end
+
+desc 'Run all unit and pdf tests'
+task test: %i( test:units test:pdf )
 
 namespace :emoji do
   desc 'Generate emoji/index.yml from emoji/images'

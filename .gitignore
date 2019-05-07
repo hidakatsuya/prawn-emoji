@@ -1,4 +1,4 @@
 /.bundle/
 /Gemfile.lock
 *.pdf
-!/test/pdf/expect.pdf
+!/test/pdf/*/expect.pdf

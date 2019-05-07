@@ -3,7 +3,7 @@
 require 'pdf/test_helper'
 
 module EmojiRendering
-  class Test < PdfTest
+  class TestCase < PdfTest
     set_case_name :emoji_rendering
 
     def test_pdf
