@@ -2,7 +2,7 @@
 
 Breaking Changes:
 
- * Drop support ruby2.1 and 2.2
+ * Drop support ruby2.1 and 2.2, 2.3
 
 ## 2.1.1
 
