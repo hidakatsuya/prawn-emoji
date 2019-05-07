@@ -4,9 +4,9 @@ sudo: false
 
 rvm:
   - 2.3.8
-  - 2.4.5
-  - 2.5.3
-  - 2.6.1
+  - 2.4.6
+  - 2.5.5
+  - 2.6.3
 
 gemfile:
   - test/gemfiles/prawn-2.1
