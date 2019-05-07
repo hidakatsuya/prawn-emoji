@@ -10,6 +10,13 @@ Rake::TestTask.new('test:units') do |t|
   t.warning = false
 end
 
+Rake::TestTask.new('test:pdf') do |t|
+  t.libs << 'test'
+  t.libs << 'lib'
+  t.test_files = FileList['test/pdf/*/test.rb']
+  t.warning = false
+end
+
 namespace :emoji do
   desc 'Generate emoji/index.yml from emoji/images'
   task :generate_index do
