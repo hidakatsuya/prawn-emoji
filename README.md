@@ -32,7 +32,7 @@ require 'prawn/emoji'
 
 Prawn::Document.generate 'foo.pdf' do
   font 'DejaVuSans.ttf'
-  text '🐟 + 🔪 = 🍣'
+  text '🐟 / 🔪 + 🍚 / 🍾 = 🍣'
 
   font 'ipag.ttf'
   text_box '🍣が食べたい', at: [100, 100], width: 300
