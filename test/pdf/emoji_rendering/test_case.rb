@@ -14,12 +14,12 @@ module EmojiRendering
         end
 
         pdf.section 'Emoji/Text Presentation' do
-          pdf.emoji '⌛', desc: 'Emoji without variation'
-          pdf.emoji '⌛︎', desc: 'Emoji with Text variation'
-          pdf.emoji '⌛️', desc: 'Emoji with Emoji variation'
-          pdf.emoji '™', desc: 'Textual Emoji without variation'
-          pdf.emoji '™︎', desc: 'Textual Emoji with Text variation'
-          pdf.emoji '™️', desc: 'Textual Emoji with Emoji variation'
+          pdf.emoji '⌚', desc: 'Emoji without variation'
+          pdf.emoji '⌚︎', desc: 'Emoji with Text variation'
+          pdf.emoji '⌚️', desc: 'Emoji with Emoji variation'
+          pdf.emoji '↔', desc: 'Textual Emoji without variation'
+          pdf.emoji '↔︎', desc: 'Textual Emoji with Text variation'
+          pdf.emoji '↔️', desc: 'Textual Emoji with Emoji variation'
         end
 
         pdf.section 'Emoji Combining Sequence' do

@@ -8,12 +8,14 @@ module PrawnIntegration
 
     def test_pdf
       Pdf.generate(actual_pdf) do |pdf|
-        pdf.doc.font Pdf::UNICODE_FONT
+        pdf.raw { |prawn| prawn.font Pdf::UNICODE_FONT }
 
         pdf.section 'Prawn::Document#text' do
           pdf.raw { |prawn|
             prawn.text 'sushi🍣teacup🍵'
-            prawn.text '寿司🍣お茶🍵'
+            prawn.font(Pdf::JAPANESE_FONT) {
+              prawn.text '寿司🍣お茶🍵'
+            }
           }
         end
 
@@ -22,7 +24,9 @@ module PrawnIntegration
             prawn.move_down 10
             prawn.draw_text 'sushi🍣teacup🍵', at: [0, prawn.cursor]
             prawn.move_down 15
-            prawn.draw_text '寿司🍣お茶🍵', at: [0, prawn.cursor]
+            prawn.font(Pdf::JAPANESE_FONT) {
+              prawn.draw_text '寿司🍣お茶🍵', at: [0, prawn.cursor]
+            }
           }
         end
 
@@ -30,7 +34,9 @@ module PrawnIntegration
           pdf.raw { |prawn|
             prawn.text_box 'sushi🍣teacup🍵', at: [0, prawn.cursor], width: 300
             prawn.move_down 15
-            prawn.text_box '寿司🍣お茶🍵', at: [0, prawn.cursor], width: 300
+            prawn.font(Pdf::JAPANESE_FONT) {
+              prawn.text_box '寿司🍣お茶🍵', at: [0, prawn.cursor], width: 300
+            }
             prawn.move_down 20
             prawn.text_box '🍣🍣sushi🍵🍵tea' * 5, at: [0, prawn.cursor], width: 200, height: 100
           }

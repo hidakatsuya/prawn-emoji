@@ -46,7 +46,8 @@ class PdfTest < Minitest::Test
   end
 
   class Pdf
-    UNICODE_FONT = Prawn::Emoji.root.join('test/fonts/ipag.ttf')
+    UNICODE_FONT = Prawn::Emoji.root.join('test/fonts/DejaVuSans.ttf')
+    JAPANESE_FONT = Prawn::Emoji.root.join('test/fonts/ipag.ttf')
 
     attr_reader :doc
 
