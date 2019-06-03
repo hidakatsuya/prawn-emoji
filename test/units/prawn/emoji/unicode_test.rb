@@ -22,17 +22,17 @@ describe Prawn::Emoji::Unicode do
     it { unicode('❤️').to_s.wont_match /[\ufe0e\ufe0f]/ }
   end
 
-  describe '#text?' do
+  describe 'delete variation selector' do
     describe 'no selector' do
-      it { unicode('☀').wont_be :text? }
+      it { unicode("\u2600").codepoint.must_equal '2600' }
     end
 
     describe 'with text presentation selector' do
-      it { unicode('☀︎').must_be :text? }
+      it { unicode("\u2600\ufe0e").codepoint.must_equal '2600' }
     end
 
     describe 'with emoji presentation selector' do
-      it { unicode('☀️').wont_be :text? }
+      it { unicode("\u2600\ufe0f").codepoint.must_equal '2600' }
     end
   end
 end

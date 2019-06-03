@@ -2,9 +2,12 @@
 
 require 'prawn'
 require 'pathname'
+require 'unicode/emoji'
 
 module Prawn
   module Emoji
+    REGEX = ::Unicode::Emoji::REGEX_VALID
+
     def self.root
       @root ||= Pathname.new File.expand_path('../..', File.dirname(__FILE__))
     end

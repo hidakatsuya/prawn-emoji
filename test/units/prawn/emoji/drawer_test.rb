@@ -6,78 +6,71 @@ describe Prawn::Emoji::Drawer do
   let(:document) { Prawn::Document.new }
   let(:drawer) { Prawn::Emoji::Drawer.new document: document }
 
-  let(:sushi)  { '🍣' }
-  let(:sushi_unicode) { Prawn::Emoji::Unicode.new(sushi) }
-  let(:sushi_image) { Prawn::Emoji::Image.new(sushi_unicode) }
-
   before do
     document.font Prawn::Emoji.root.join 'test', 'fonts', 'DejaVuSans.ttf'
   end
 
-  describe '#draw' do
-    subject { drawer.draw(text, {}) }
+  subject { drawer.draw(text, text_options) }
 
-    describe 'when text encoding is not utf-8' do
+  describe 'skip drawing' do
+    let(:text_options) { {} }
+
+    describe 'text is not utf8' do
       let(:text) { 'a'.encode('ascii-8bit') }
-
-      it 'skip' do
-        mock(drawer).draw_emoji(text, {}).never
-        subject
-      end
+      it { subject.must_be_same_as text }
     end
 
-    describe 'when text encoding is utf-8' do
-      let(:text) { "\xe8\x8a\xb1" }
-
-      it 'performs' do
-        mock(drawer).draw_emoji(text, {}).once
-        subject
-      end
+    describe 'text does not include emoji' do
+      let(:text) { 'abcdefg' }
+      it { subject.must_be_same_as text }
     end
   end
 
-  describe '#draw_emoji' do
-    subject { drawer.send :draw_emoji, text, text_options }
-
+  describe 'text that contains supported emojis' do
+    let(:sushi) { '🍣' }
+    let(:sushi_unicode) { Prawn::Emoji::Unicode.new(sushi) }
+    let(:sushi_image) { Prawn::Emoji::Image.new(sushi_unicode) }
     let(:text_options) { { at: [100, 200], font_size: 12 } }
     let(:sub_char) { Prawn::Emoji::Substitution.new(document) }
 
-    describe 'when not includes emoji' do
-      let(:text) { 'abc' }
+    let(:text) { "aaa#{sushi}bbb#{sushi}#{sushi}ccc" }
 
-      it 'returns original text' do
-        subject.must_be_same_as text
+    it 'draws alternative images for each emoji included in the text' do
+      image_x_positions = [
+        100 + document.width_of('aaa', text_options),
+        100 + document.width_of("aaa#{sub_char}bbb", text_options),
+        100 + document.width_of("aaa#{sub_char}bbb#{sub_char}", text_options)
+      ]
+
+      image_x_positions.each do |x|
+        mock(document).image(sushi_image.path, at: [x, 200 + 12], width: 12).once
       end
+      subject
     end
 
-    describe 'when includes emoji' do
-      let(:text) { "aaa#{sushi}bbb#{sushi}#{sushi}ccc" }
-
-      it 'draws alternative images for each emoji included in the text' do
-        image_x_positions = [
-          100 + document.width_of('aaa', text_options),
-          100 + document.width_of("aaa#{sub_char}bbb", text_options),
-          100 + document.width_of("aaa#{sub_char}bbb#{sub_char}", text_options)
-        ]
-
-        image_x_positions.each { |x|
-          mock(drawer).draw_emoji_image(sushi_image, at: [x, 200 + 12], width: 12).once
-        }
-        subject
-      end
-
-      it 'returns text that all emoji has substituted' do
-        subject.must_equal "aaa#{sub_char}bbb#{sub_char}#{sub_char}ccc"
-      end
+    it 'returns text that all emoji has substituted' do
+      subject.must_equal "aaa#{sub_char}bbb#{sub_char}#{sub_char}ccc"
     end
   end
 
-  describe '#draw_emoji_image' do
-    subject { drawer.send :draw_emoji_image, sushi_image, at: [100, 100], width: 12 }
+  describe 'text that contains unsupported emojis' do
+    let(:text) { '😴︎ is not supported' }
+    let(:text_options) { { at: [100, 200], font_size: 12 } }
 
-    it 'calls Prawn::Document#image with valid arguments' do
-      mock(document).image(sushi_image.path, at: [100, 100], width: 12).once
+    it 'does not draw emoji' do
+      mock(document).image.never
       subject
     end
+
+    it 'returns the original text' do
+      subject.must_equal text
+    end
+  end
+
+  describe 'empty text' do
+    let(:text) { '' }
+    let(:text_options) { {} }
+
+    it { subject.must_be_same_as text }
   end
 end

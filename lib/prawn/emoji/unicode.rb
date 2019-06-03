@@ -3,13 +3,9 @@
 module Prawn
   module Emoji
     class Unicode
-      VARIATION_SELECTORS = {
-        text:  '\ufe0e',
-        emoji: '\ufe0f'
-      }.freeze
+      VARIATION_SELECTORS = %w(\ufe0e \ufe0f).freeze
 
       def initialize(char)
-        @present_as_text = !!char.match(VARIATION_SELECTORS[:text])
         @unicode = delete_variation_selector(char)
       end
 
@@ -21,10 +17,6 @@ module Prawn
         @codepoint ||= @unicode.codepoints.map { |c| '%04x' % c.to_s }.join('-').downcase
       end
 
-      def text?
-        @present_as_text
-      end
-
       def to_s
         @unicode
       end
@@ -32,7 +24,7 @@ module Prawn
       private
 
       def delete_variation_selector(char)
-        char.gsub(/[#{VARIATION_SELECTORS.values.join}]/, '')
+        char.gsub(/[#{VARIATION_SELECTORS.join}]/, '')
       end
     end
   end
