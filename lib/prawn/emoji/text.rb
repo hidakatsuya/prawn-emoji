@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'unicode/emoji'
-
 require_relative 'unicode'
 
 module Prawn
