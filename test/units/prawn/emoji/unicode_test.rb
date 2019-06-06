@@ -7,6 +7,18 @@ describe Prawn::Emoji::Unicode do
     Prawn::Emoji::Unicode.new(emoji)
   end
 
+  describe '.format_codepoint' do
+    [
+      [%w(abcd), 'abcd'],
+      [%w(ABCD), 'abcd'],
+      [%w(a), '000a'],
+      [%w(1234 5678 9012), '1234-5678-9012'],
+      [%w(A B C), '000a-000b-000c']
+    ].each do |(args, expect)|
+      it { Prawn::Emoji::Unicode.format_codepoint(args).must_equal expect }
+    end
+  end
+
   describe '#==' do
     it { unicode('🐟').must_be :==, unicode('🐟') }
     it { unicode('🐟').wont_be :==, unicode('🍣') }
