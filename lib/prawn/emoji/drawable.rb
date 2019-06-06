@@ -13,7 +13,7 @@ module Prawn
       private
 
       def emoji_drawer
-        @emoji_drawer ||= Emoji::Drawer.new document: self
+        @emoji_drawer ||= Emoji::Drawer.new(self)
       end
     end
   end

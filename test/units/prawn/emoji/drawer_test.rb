@@ -4,7 +4,7 @@ require 'units/test_helper'
 
 describe Prawn::Emoji::Drawer do
   let(:document) { Prawn::Document.new }
-  let(:drawer) { Prawn::Emoji::Drawer.new document: document }
+  let(:drawer) { Prawn::Emoji::Drawer.new(document) }
 
   before do
     document.font Prawn::Emoji.root.join 'test', 'fonts', 'DejaVuSans.ttf'

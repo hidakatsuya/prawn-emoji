@@ -8,7 +8,7 @@ require_relative 'text'
 module Prawn
   module Emoji
     class Drawer
-      def initialize(document:)
+      def initialize(document)
         @document = document
         @emoji_index = Emoji::Index.new
       end
