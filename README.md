@@ -27,17 +27,11 @@ Or install it yourself as:
 In order to run the following code, you need to place both [DejaVuSans.ttf](http://sourceforge.net/projects/dejavu/) and [ipag.ttf](http://ipafont.ipa.go.jp/old/ipafont/download.html) in the same directory as the script file.
 
 ```ruby
-require 'prawn'
 require 'prawn/emoji'
 
-Prawn::Document.generate 'foo.pdf' do
+Prawn::Document.generate 'sushi.pdf' do
   font 'DejaVuSans.ttf'
   text '🐟 / 🔪 + 🍚 / 🍾 = 🍣'
-
-  font 'ipag.ttf'
-  text_box '🍣が食べたい', at: [100, 100], width: 300
-
-  draw_text '🍣🍣🍣🍣🍣', at: [100, 200]
 end
 ```
 
