@@ -83,7 +83,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/hidaka
 
 ### How to test
 
-Run tests completely:
+Run all tests:
 
 ```
 $ bundle exec rake test
@@ -105,11 +105,15 @@ $ bundle exec rake test:pdf
 
 ### How to update `emoji/index.yml`
 
-If you update emoji image in `emoji/images`, you need to update `emoji/index.yml` to run the following task:
+```
+$ bundle exec rake emoji:update
+```
 
-```
-$ bundle exec rake emoji:generate_index
-```
+This task works the following:
+
+1. Download emoji images from https://github.com/twitter/twemoji/
+2. Save the emoji images in the `emoji/images/`
+3. Write image list in `emoji/images/` to `emoji/index.yml`
 
 ## Credit
 
