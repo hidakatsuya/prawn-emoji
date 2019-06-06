@@ -20,12 +20,12 @@ module Prawn
         result = []
         target = Emoji::Text.new(text)
 
-        while target.include_emoji? do
+        while target.contains_emoji? do
           if emoji_index.include?(target.emoji.codepoint)
             draw_emoji(
               target,
               text_options: text_options,
-              result_texts: result.join
+              base_text: result.join
             )
             result << target.left + Emoji::Substitution.new(@document).to_s
           else
@@ -42,12 +42,12 @@ module Prawn
 
       attr_reader :emoji_index
 
-      def draw_emoji(text, text_options:, result_texts:)
+      def draw_emoji(text, text_options:, base_text:)
         image = Emoji::Image.new(text.emoji, @document.font_size)
 
         base_x, base_y = text_options[:at]
 
-        x = image.adjust_x(base_x + @document.width_of(result_texts + text.left, text_options))
+        x = image.adjust_x(base_x + @document.width_of(base_text + text.left, text_options))
         y = image.adjust_y(base_y)
 
         @document.image image.path, at: [x, y], width: image.width

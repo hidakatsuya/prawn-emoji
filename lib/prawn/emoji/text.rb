@@ -12,7 +12,7 @@ module Prawn
         @emoji = Emoji::Unicode.new(emoji_char) unless emoji_char.empty?
       end
 
-      def include_emoji?
+      def contains_emoji?
         !emoji.nil?
       end
 

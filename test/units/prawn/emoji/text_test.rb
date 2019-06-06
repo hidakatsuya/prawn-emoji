@@ -38,15 +38,15 @@ describe Prawn::Emoji::Text do
     end
   end
 
-  describe '#include_emoji?' do
+  describe '#contains_emoji?' do
     describe 'includes' do
       let(:text) { '👍' }
-      it { subject.must_be :include_emoji? }
+      it { subject.must_be :contains_emoji? }
     end
 
     describe 'not includes' do
       let(:text) { 'text only' }
-      it { subject.wont_be :include_emoji? }
+      it { subject.wont_be :contains_emoji? }
     end
   end
 
