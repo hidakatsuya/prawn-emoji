@@ -30,10 +30,6 @@ module Prawn
       def width
         font_size * 0.85
       end
-
-      def ==(other)
-        unicode == other.unicode
-      end
     end
   end
 end

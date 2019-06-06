@@ -29,9 +29,4 @@ describe Prawn::Emoji::Image do
     subject { Prawn::Emoji::Image.new('❤', 10).width }
     it { subject.must_equal 8.5 }
   end
-
-  describe '#==' do
-    it { Prawn::Emoji::Image.new('🍣', 12).must_be :==, Prawn::Emoji::Image.new('🍣', 12) }
-    it { Prawn::Emoji::Image.new('🍣', 12).wont_be :==, Prawn::Emoji::Image.new('🐟', 12) }
-  end
 end
