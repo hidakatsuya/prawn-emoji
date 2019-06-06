@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-In order to run the following code, you need to place both [DejaVuSans.ttf](http://sourceforge.net/projects/dejavu/) and [ipag.ttf](http://ipafont.ipa.go.jp/old/ipafont/download.html) in the same directory as the script file.
+In order to run the following code, you need to place [DejaVuSans.ttf](http://sourceforge.net/projects/dejavu/) in the same directory as the script file.
 
 ```ruby
 require 'prawn/emoji'
