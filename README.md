@@ -113,7 +113,7 @@ This task works the following:
 
 ### Twemoji 12.04
 
-[Twemoji](https://github.com/twitter/twemoji) Graphics under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/)
+[Twemoji](https://github.com/twitter/twemoji) Graphics licensed under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ### IPA Font
 
