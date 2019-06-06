@@ -29,7 +29,7 @@ describe Prawn::Emoji::Drawer do
   describe 'text that contains supported emojis' do
     let(:sushi) { '🍣' }
     let(:sushi_unicode) { Prawn::Emoji::Unicode.new(sushi) }
-    let(:sushi_image) { Prawn::Emoji::Image.new(sushi_unicode) }
+    let(:sushi_image) { Prawn::Emoji::Image.new(sushi_unicode, 12) }
     let(:text_options) { { at: [100, 200], font_size: 12 } }
     let(:sub_char) { Prawn::Emoji::Substitution.new(document) }
 
@@ -43,7 +43,11 @@ describe Prawn::Emoji::Drawer do
       ]
 
       image_x_positions.each do |x|
-        mock(document).image(sushi_image.path, at: [x, 200 + 12], width: 12).once
+        position = [
+          sushi_image.adjust_x(x),
+          sushi_image.adjust_y(200)
+        ]
+        mock(document).image(sushi_image.path, at: position, width: sushi_image.width).once
       end
       subject
     end

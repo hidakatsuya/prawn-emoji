@@ -3,10 +3,16 @@
 module Prawn
   module Emoji
     class Unicode
-      VARIATION_SELECTORS = %w(\ufe0e \ufe0f).freeze
+      VARIATION_SELECTORS = %w(fe0e fe0f).freeze
+
+      class << self
+        def format_codepoint(codepoints)
+          (codepoints - VARIATION_SELECTORS).map { |c| c.rjust(4, '0') }.join('-').downcase
+        end
+      end
 
       def initialize(char)
-        @unicode = delete_variation_selector(char)
+        @unicode = char
       end
 
       def ==(other)
@@ -14,17 +20,11 @@ module Prawn
       end
 
       def codepoint
-        @codepoint ||= @unicode.codepoints.map { |c| '%04x' % c.to_s }.join('-').downcase
+        @codepoint ||= self.class.format_codepoint(@unicode.codepoints.map { |c| c.to_s(16) })
       end
 
       def to_s
         @unicode
-      end
-
-      private
-
-      def delete_variation_selector(char)
-        char.gsub(/[#{VARIATION_SELECTORS.join}]/, '')
       end
     end
   end

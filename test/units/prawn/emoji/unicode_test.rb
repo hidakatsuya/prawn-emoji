@@ -19,7 +19,7 @@ describe Prawn::Emoji::Unicode do
 
   describe '#to_s' do
     it { unicode('🍣').to_s.must_equal '🍣' }
-    it { unicode('❤️').to_s.wont_match /[\ufe0e\ufe0f]/ }
+    it { unicode('❤️').to_s.must_equal "\u2764\ufe0f" }
   end
 
   describe 'delete variation selector' do

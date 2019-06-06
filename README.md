@@ -48,7 +48,7 @@ In order to draw emoji, you must use a TTF - True Type Font. I recommend you use
 
 ## Feature
 
-  * Emoji is provided by EmojiOne http://emojione.com
+  * Emoji is provided by Twemoji https://github.com/twitter/twemoji
   * Multi-character emoji support
   * RTL support
   * Character spacing support
@@ -117,9 +117,9 @@ This task works the following:
 
 ## Credit
 
-### Emoji One
+### Twemoji 12.04
 
-Emoji provided free by [Emoji One](http://emojione.com/) (Version 2).
+[Twemoji](https://github.com/twitter/twemoji) Graphics under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ### IPA Font
 

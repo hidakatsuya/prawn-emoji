@@ -43,13 +43,14 @@ module Prawn
       attr_reader :emoji_index
 
       def draw_emoji(text, text_options:, result_texts:)
-        emoji_image = Emoji::Image.new(text.emoji)
+        image = Emoji::Image.new(text.emoji, @document.font_size)
 
-        emoji_x, emoji_y = text_options[:at]
-        emoji_x += @document.width_of(result_texts + text.left, text_options)
-        emoji_y += @document.font_size
+        base_x, base_y = text_options[:at]
 
-        @document.image emoji_image.path, at: [emoji_x, emoji_y], width: @document.font_size
+        x = image.adjust_x(base_x + @document.width_of(result_texts + text.left, text_options))
+        y = image.adjust_y(base_y)
+
+        @document.image image.path, at: [x, y], width: image.width
       end
     end
   end
