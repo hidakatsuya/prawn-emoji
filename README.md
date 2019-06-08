@@ -35,14 +35,13 @@ Prawn::Document.generate 'sushi.pdf' do
 end
 ```
 
-
 ### IMPORTANT
 
 In order to draw emoji, you must use a TTF - True Type Font. I recommend you use a Japanese font.
 
 ## Feature
 
-  * Emoji is provided by Twemoji https://github.com/twitter/twemoji
+  * Emoji is provided by [Twemoji](https://github.com/twitter/twemoji)
   * Multi-character emoji support
   * RTL support
   * Character spacing support
@@ -54,17 +53,23 @@ In order to draw emoji, you must use a TTF - True Type Font. I recommend you use
 
 See [prawn-emoji/issues](https://github.com/hidakatsuya/prawn-emoji/labels/known%20issue)
 
-## Supported versions
+## Support Status
 
-See also https://travis-ci.org/hidakatsuya/prawn-emoji.
+### Emoji
+
+See [test/pdf/emoji_rendering/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/master/test/pdf/emoji_rendering/expect.pdf)
 
 ### Ruby
 
 2.4, 2.5, 2.6
 
+See also https://travis-ci.org/hidakatsuya/prawn-emoji
+
 ### Prawn
 
 2.2+
+
+See also [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/master/test/pdf/prawn_integration/expect.pdf)
 
 ### NOTICE
 
