@@ -1,12 +1,16 @@
-## master
+## 3.0.0
+
+Big Changes:
+
+ * Switch emoji to [Twemoji](https://github.com/twitter/twemoji) v12.04 from EmojiOne v2.0
+   * See [#23 Switch to Twemoji](https://github.com/hidakatsuya/prawn-emoji/issues/23) for further details
+ * Support joined emojis like 👨‍👨‍👦 or 1️⃣
+   * See [#24 Joined emojis like 👨‍👨‍👦 or 1️⃣ are not drawn](https://github.com/hidakatsuya/prawn-emoji/issues/24) for further details
 
 Breaking Changes:
 
  * Drop support ruby2.1 and 2.2, 2.3
  * prawn-emoji requires Prawn 2.2 (Drop support Prawn 2.1)
- * Improve emoji support for ZWJ/Combining Sequence and Text Presentation
-   * See https://github.com/hidakatsuya/prawn-emoji/blob/master/test/pdf/emoji_rendering/expect.pdf
- * Switch emoji image to [Twemoji](https://github.com/twitter/twemoji) v12.04 from EmojiOne v2.0
 
 ## 2.1.1
 
