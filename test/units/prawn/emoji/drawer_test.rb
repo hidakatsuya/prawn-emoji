@@ -71,10 +71,50 @@ describe Prawn::Emoji::Drawer do
     end
   end
 
-  describe 'empty text' do
+  describe 'text is empty' do
     let(:text) { '' }
     let(:text_options) { {} }
 
     it { subject.must_be_same_as text }
+  end
+
+  describe 'preserve the original text' do
+    let(:text_options) { { at: [100, 200], font_size: 12 } }
+    let(:sub_char) { Prawn::Emoji::Substitution.new(document).to_s }
+
+    let(:emojis) { '🍣👨‍👨‍👦' }
+
+    describe 'ASCII Character' do
+      let(:ascii_33_79) { (33..79).map(&:chr).join }
+      let(:ascii_80_126) { (80..126).map(&:chr).join }
+      let(:text) {
+        [emojis, ascii_33_79, emojis, ascii_80_126, emojis].join
+      }
+      it { subject.must_equal [sub_char * 2, ascii_33_79, sub_char * 2, ascii_80_126, sub_char * 2].join }
+    end
+
+    describe 'Textual Emoji' do
+      let(:textual_emoji) { '▶' }
+      let(:emoji_with_text_presentation) { "\u{1f634}\u{FE0E}" }
+      let(:text) {
+        [
+          emojis, textual_emoji, emoji_with_text_presentation,
+          emojis, textual_emoji, emoji_with_text_presentation, emojis
+        ].join
+      }
+      it do
+        subject.must_equal [
+          sub_char * 2, textual_emoji, emoji_with_text_presentation,
+          sub_char * 2, textual_emoji, emoji_with_text_presentation, sub_char * 2
+        ].join
+      end
+    end
+
+    describe 'CJK' do
+      let(:japanese) { 'あいうえお日本語￥〇〒' }
+      let(:text) { [emojis, japanese, emojis, japanese, emojis].join }
+
+      it { subject.must_equal [sub_char * 2, japanese, sub_char * 2, japanese, sub_char * 2].join }
+    end
   end
 end
