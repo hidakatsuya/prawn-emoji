@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.author        = 'Katsuya HIDAKA'
   spec.email         = 'hidakatsuya@gmail.com'
 
-  spec.summary       = 'Provides support for Emoji in Prawn'
-  spec.description   = 'Prawn::Emoji is an extention for Prawn, provides feature for drawing Emoji.'
+  spec.summary       = 'Adds Emoji support to Prawn'
+  spec.description   = 'Prawn::Emoji is an extention that adds Emoji support to Prawn'
   spec.homepage      = 'https://github.com/hidakatsuya/prawn-emoji'
   spec.license       = 'MIT'
 
