@@ -103,7 +103,24 @@ Run pdf tests:
 $ bundle exec rake test:pdf
 ```
 
-**NOTICE:** In order to run `test:pdf`, you need to install [diff-pdf](https://github.com/vslavik/diff-pdf) in your environment.
+In order to run `test:pdf`, you need to install [diff-pdf](https://github.com/vslavik/diff-pdf) in your environment, or you can run test in the docker container as below.
+
+### Run test using the Docker container
+
+The `diff-pdf` is already installed on the Docker container, so there is no need to install it in your environment.
+
+```
+$ docker build -t prawn-emoji-test .
+
+# Run test:pdf by default
+$ docker run --rm prawn-emoji-test
+
+# Run test:units
+$ docker run --rm prawn-emoji-test test:units
+
+# Run all test
+$ docker run --rm prawn-emoji-test test
+```
 
 ### How to update bundled emojis
 
