@@ -17,21 +17,21 @@ describe Prawn::Emoji::Substitution do
   describe 'When Japanese TTF font' do
     let(:font) { Prawn::Emoji.root.join('test', 'fonts', 'ipag.ttf') }
 
-    it { subject.must_equal '　' }
-    it { document.width_of(subject).must_equal font_size }
+    it { _(subject).must_equal '　' }
+    it { _(document.width_of(subject)).must_equal font_size }
   end
 
   describe 'When ASCII TTF font' do
     let(:font) { Prawn::Emoji.root.join('test', 'fonts', 'DejaVuSans.ttf') }
 
-    it { subject.must_match /^#{Prawn::Text::NBSP}+$/ }
-    it { document.width_of(subject).must_be :>=, font_size - 1 }
-    it { document.width_of(subject).must_be :<=, font_size + 1 }
+    it { _(subject).must_match(/^#{Prawn::Text::NBSP}+$/) }
+    it { _(document.width_of(subject)).must_be :>=, font_size - 1 }
+    it { _(document.width_of(subject)).must_be :<=, font_size + 1 }
   end
 
   describe 'When built-in AFM font' do
     let(:font) { nil }
 
-    it { proc { subject }.must_raise Prawn::Errors::IncompatibleStringEncoding }
+    it { _ { subject }.must_raise Prawn::Errors::IncompatibleStringEncoding }
   end
 end

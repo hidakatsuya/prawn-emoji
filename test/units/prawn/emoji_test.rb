@@ -50,8 +50,8 @@ describe 'Prawn integration' do
   def assert_properly_render_text(pdf)
     pdf_strings = extract_strings(pdf.render)
 
-    pdf_strings.must_include "sushi#{nbsp * 3}teacup#{nbsp * 3}"
-    pdf_strings.must_include "寿司　お茶　"
+    _(pdf_strings).must_include "sushi#{nbsp * 3}teacup#{nbsp * 3}"
+    _(pdf_strings).must_include "寿司　お茶　"
   end
 
   def font_path(name)

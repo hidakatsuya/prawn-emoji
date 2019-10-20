@@ -11,12 +11,12 @@ describe Prawn::Emoji::Index do
 
     let(:all_codes) { YAML.load_file(Prawn::Emoji.root.join('emoji', 'index.yml')) }
 
-    it { subject.must_equal all_codes }
+    it { _(subject).must_equal all_codes }
   end
 
   describe '#include?' do
-    it { index.include?('0023-20e3').must_equal true }
-    it { index.include?('3299').must_equal true }
-    it { index.include?('unknown').must_equal false }
+    it { _(index.include?('0023-20e3')).must_equal true }
+    it { _(index.include?('3299')).must_equal true }
+    it { _(index.include?('unknown')).must_equal false }
   end
 end

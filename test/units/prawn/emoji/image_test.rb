@@ -17,16 +17,16 @@ describe Prawn::Emoji::Image do
 
   describe '#adjust_x' do
     subject { Prawn::Emoji::Image.new('🍣', 12).adjust_x(100) }
-    it { subject.must_equal 100.9 }
+    it { _(subject).must_equal 100.9 }
   end
 
   describe '#adjust_y' do
     subject { Prawn::Emoji::Image.new('❤', 18).adjust_y(100) }
-    it { subject.must_equal 114.4 }
+    it { _(subject).must_equal 114.4 }
   end
 
   describe '#width' do
     subject { Prawn::Emoji::Image.new('❤', 10).width }
-    it { subject.must_equal 8.5 }
+    it { _(subject).must_equal 8.5 }
   end
 end

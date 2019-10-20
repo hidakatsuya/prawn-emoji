@@ -20,6 +20,6 @@ describe Prawn::Emoji::Drawable do
 
   describe '#emoji_drawer' do
     subject { document_test.send :emoji_drawer }
-    it { subject.must_be_instance_of Prawn::Emoji::Drawer }
+    it { _(subject).must_be_instance_of Prawn::Emoji::Drawer }
   end
 end

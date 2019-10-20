@@ -17,12 +17,12 @@ describe Prawn::Emoji::Drawer do
 
     describe 'text is not utf8' do
       let(:text) { 'a'.encode('ascii-8bit') }
-      it { subject.must_be_same_as text }
+      it { _(subject).must_be_same_as text }
     end
 
     describe 'text does not include emoji' do
       let(:text) { 'abcdefg' }
-      it { subject.must_be_same_as text }
+      it { _(subject).must_be_same_as text }
     end
   end
 
@@ -53,7 +53,7 @@ describe Prawn::Emoji::Drawer do
     end
 
     it 'returns text that all emoji has substituted' do
-      subject.must_equal "aaa#{sub_char}bbb#{sub_char}#{sub_char}ccc"
+      _(subject).must_equal "aaa#{sub_char}bbb#{sub_char}#{sub_char}ccc"
     end
   end
 
@@ -67,7 +67,7 @@ describe Prawn::Emoji::Drawer do
     end
 
     it 'returns the original text' do
-      subject.must_equal text
+      _(subject).must_equal text
     end
   end
 
@@ -75,7 +75,7 @@ describe Prawn::Emoji::Drawer do
     let(:text) { '' }
     let(:text_options) { {} }
 
-    it { subject.must_be_same_as text }
+    it { _(subject).must_be_same_as text }
   end
 
   describe 'preserve the original text' do
@@ -90,7 +90,7 @@ describe Prawn::Emoji::Drawer do
       let(:text) {
         [emojis, ascii_33_79, emojis, ascii_80_126, emojis].join
       }
-      it { subject.must_equal [sub_char * 2, ascii_33_79, sub_char * 2, ascii_80_126, sub_char * 2].join }
+      it { _(subject).must_equal [sub_char * 2, ascii_33_79, sub_char * 2, ascii_80_126, sub_char * 2].join }
     end
 
     describe 'Textual Emoji' do
@@ -103,7 +103,7 @@ describe Prawn::Emoji::Drawer do
         ].join
       }
       it do
-        subject.must_equal [
+        _(subject).must_equal [
           sub_char * 2, textual_emoji, emoji_with_text_presentation,
           sub_char * 2, textual_emoji, emoji_with_text_presentation, sub_char * 2
         ].join
@@ -114,7 +114,7 @@ describe Prawn::Emoji::Drawer do
       let(:japanese) { 'あいうえお日本語￥〇〒' }
       let(:text) { [emojis, japanese, emojis, japanese, emojis].join }
 
-      it { subject.must_equal [sub_char * 2, japanese, sub_char * 2, japanese, sub_char * 2].join }
+      it { _(subject).must_equal [sub_char * 2, japanese, sub_char * 2, japanese, sub_char * 2].join }
     end
   end
 end
