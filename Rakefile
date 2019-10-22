@@ -21,8 +21,13 @@ desc 'Run all unit and pdf tests'
 task test: %i( test:units test:pdf )
 
 namespace :emoji do
-  desc 'Update emoji'
-  task update: %i( clean_all twemoji:load update_index )
+  desc 'Update emoji > rake emoji:update VERSION=0.0.0'
+  task update: %i(
+    clean_all
+    twemoji:load
+    update_index
+    twemoji:update_version
+  )
 
   desc 'Update emoji/index.yml from emoji/images'
   task :update_index do
@@ -49,27 +54,28 @@ namespace :emoji do
   end
 
   namespace :twemoji do
-    desc 'Load and put github.com/twitter/twemoji/2/72x72/*.png in the emoji/images/'
+    desc 'Load and put github.com/twitter/twemoji/assets/72x72/*.png to the emoji/images/'
     task :load do
       require 'prawn/emoji'
       require 'open-uri'
       require 'zip'
       require 'tempfile'
 
+      target_version = ENV['VERSION']
       image_dir = Prawn::Emoji.root.join('emoji', 'images')
 
-      puts 'Loading source of github.com/twitter/twemoji...'
+      puts "Loading source of v#{target_version} from github.com/twitter/twemoji ..."
 
-      master_zip = Tempfile.open do |t|
+      source_zip = Tempfile.open do |t|
         t.binmode
-        t.write open('https://github.com/twitter/twemoji/archive/gh-pages.zip').read
+        t.write open("https://github.com/twitter/twemoji/archive/v#{target_version}.zip").read
         t
       end
 
       puts 'Loaded'
 
-      Zip::File.open(master_zip.path) do |master|
-        emojis = master.glob('twemoji-gh-pages/2/72x72/*.png')
+      Zip::File.open(source_zip.path) do |source|
+        emojis = source.glob("twemoji-#{target_version}/assets/72x72/*.png")
 
         puts "Saving #{emojis.size} emoji files..."
         emojis.each do |image|
@@ -77,6 +83,16 @@ namespace :emoji do
           image_dir.join(emoji_name.name).binwrite(image.get_input_stream.read)
         end
       end
+    end
+
+    desc 'Update version in LICENSE file'
+    task :update_version do
+      require 'prawn/emoji'
+
+      license_file = Prawn::Emoji.root.join('emoji', 'LICENSE')
+      license_file.write("Twemoji #{ENV['VERSION']} Graphics licensed under CC-BY4.0.")
+
+      puts 'Updated LICENSE'
     end
 
     class EmojiName
