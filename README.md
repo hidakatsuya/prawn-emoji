@@ -125,7 +125,7 @@ $ docker run --rm prawn-emoji-test test
 ### How to update bundled emojis
 
 ```
-$ bundle exec rake emoji:update
+$ bundle exec rake emoji:update VERSION=<Twemoji version>
 ```
 
 This task works the following:
@@ -133,6 +133,7 @@ This task works the following:
 1. Download emoji images from https://github.com/twitter/twemoji/
 2. Save the emoji images in the `emoji/images/`
 3. Write image list in `emoji/images/` to `emoji/index.yml`
+4. Update version in `emoji/LICENSE`
 
 ## License
 
@@ -145,4 +146,3 @@ This task works the following:
 ### IPA Font
 
 [IPA Font License Agreement v1.0](http://ipafont.ipa.go.jp/ipa_font_license_v1.html)
-
