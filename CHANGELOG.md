@@ -1,3 +1,10 @@
+## master (Unreleased)
+
+### Enhancements
+
+ * Updated to Twemoji 12.1.3
+   * This change includes some new emoji support and emoji CHANGES. See [commit](https://github.com/hidakatsuya/prawn-emoji/commit/96cb731d337721bf89be9463d270cc46962380d9) for details
+
 ## 3.0.0
 
 ### Big Changes
