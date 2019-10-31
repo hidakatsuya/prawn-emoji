@@ -21,7 +21,7 @@ For execute this code, you need [DejaVuSans.ttf](http://sourceforge.net/projects
 
 ### Emoji
 
-  * Emoji is provided by [Twemoji v12.04](https://github.com/twitter/twemoji)
+  * Emoji is provided by [Twemoji](https://github.com/twitter/twemoji)
   * Support Singleton/Combining/Modifier/Flag/ZWJ Sequence Emoji
 
 See [test/pdf/emoji_rendering/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/master/test/pdf/emoji_rendering/expect.pdf) for details.
@@ -139,9 +139,9 @@ This task works the following:
 
 © 2015 Katsuya HIDAKA. See MIT-LICENSE for further details.
 
-### Twemoji 12.04
+### Twemoji
 
-[Twemoji](https://github.com/twitter/twemoji) Graphics licensed under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/)
+[Twemoji](https://github.com/twitter/twemoji) Graphics licensed under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/). See `emoji/LICENSE` for futher details.
 
 ### IPA Font
 
