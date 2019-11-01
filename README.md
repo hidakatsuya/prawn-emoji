@@ -1,7 +1,7 @@
 # Prawn::Emoji
 
+![](https://github.com/hidakatsuya/prawn-emoji/workflows/Test/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/prawn-emoji.svg)](https://badge.fury.io/rb/prawn-emoji)
-[![Build Status](https://travis-ci.org/hidakatsuya/prawn-emoji.svg)](https://travis-ci.org/hidakatsuya/prawn-emoji)
 [![Maintainability](https://api.codeclimate.com/v1/badges/edcd23ef38c2e393513b/maintainability)](https://codeclimate.com/github/hidakatsuya/prawn-emoji/maintainability)
 
 Prawn::Emoji is an extention that adds Emoji support to [Prawn](https://github.com/prawnpdf/prawn).
