@@ -1,3 +1,9 @@
+## Master (Unreleased)
+
+### Minor Enhancements
+
+ * Ruby 2.7.0 support
+
 ## 3.1.0
 
 ### Minor Enhancements

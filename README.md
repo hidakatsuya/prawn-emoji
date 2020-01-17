@@ -71,7 +71,7 @@ In order to draw Emoji, you must use a True Type Font. I recommend you use a Jap
 
 ### Ruby
 
-2.4, 2.5, 2.6
+2.4, 2.5, 2.6, 2.7
 
 ### Prawn
 
