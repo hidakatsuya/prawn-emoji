@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_path  = 'lib'
 
   spec.add_runtime_dependency 'prawn', '~> 2.2.0'
-  spec.add_runtime_dependency 'unicode-emoji', '~> 2.3.1'
+  spec.add_runtime_dependency 'unicode-emoji', '>= 2.3.1', '< 2.5.0'
 
   spec.add_development_dependency 'bundler', '>= 1.0.0'
   spec.add_development_dependency 'rake', '>= 0'
