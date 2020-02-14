@@ -1,6 +1,6 @@
 # Prawn::Emoji
 
-[![](https://github.com/hidakatsuya/prawn-emoji/workflows/Test/badge.svg)](https://github.com/hidakatsuya/prawn-emoji/actions?query=branch%3Amaster)
+![Test](https://github.com/hidakatsuya/prawn-emoji/workflows/Test/badge.svg?branch=master)
 [![Gem Version](https://badge.fury.io/rb/prawn-emoji.svg)](https://badge.fury.io/rb/prawn-emoji)
 [![Maintainability](https://api.codeclimate.com/v1/badges/edcd23ef38c2e393513b/maintainability)](https://codeclimate.com/github/hidakatsuya/prawn-emoji/maintainability)
 
