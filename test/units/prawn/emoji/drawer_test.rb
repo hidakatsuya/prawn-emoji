@@ -47,7 +47,7 @@ describe Prawn::Emoji::Drawer do
           sushi_image.adjust_x(x),
           sushi_image.adjust_y(200)
         ]
-        mock(document).image(sushi_image.path, at: position, width: sushi_image.width).once
+        mock(document).image(is_a(File), at: position, width: sushi_image.width).once
       end
       subject
     end
@@ -115,6 +115,35 @@ describe Prawn::Emoji::Drawer do
       let(:text) { [emojis, japanese, emojis, japanese, emojis].join }
 
       it { _(subject).must_equal [sub_char * 2, japanese, sub_char * 2, japanese, sub_char * 2].join }
+    end
+  end
+
+  describe 'Closing opened image files' do
+    let(:text) { '🍣' }
+    let(:text_options) { { at: [100, 200], font_size: 12 } }
+
+    it do
+      opened_files = { before: count_opened_files, after: nil }
+
+      disable_gc {
+        subject
+        opened_files[:after] = count_opened_files
+      }
+
+      _(opened_files[:after]).must_equal opened_files[:before]
+    end
+
+    def count_opened_files
+      ObjectSpace.each_object(File).reject(&:closed?).count
+    end
+
+    def disable_gc
+      was_disabled = GC.disable
+      begin
+        yield
+      ensure
+        GC.enable unless was_disabled
+      end
     end
   end
 end
