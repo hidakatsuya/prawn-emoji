@@ -27,7 +27,7 @@ module Prawn
       private
 
       def partition_by_emoji(text)
-        text.partition(Emoji::REGEX)
+        text.partition(Emoji.regex)
       end
     end
   end

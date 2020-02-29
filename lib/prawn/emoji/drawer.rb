@@ -15,7 +15,7 @@ module Prawn
 
       def draw(text, text_options)
         return text unless text.encoding == ::Encoding::UTF_8
-        return text unless Emoji::REGEX.match?(text)
+        return text unless Emoji.regex.match?(text)
 
         result = []
         target = Emoji::Text.new(text)

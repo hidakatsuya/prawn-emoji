@@ -3,6 +3,7 @@
 ### Minor Enhancements
 
  * Ruby 2.7.0 support
+ * Emoji Regex can now be overridden in `Prawn::Emoji.config.regex`
 
 ### Bug Fixes
 
