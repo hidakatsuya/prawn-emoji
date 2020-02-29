@@ -67,6 +67,21 @@ require 'prawn/emoji'
 
 In order to draw Emoji, you must use a True Type Font. I recommend you use a Japanese font.
 
+## Configuring Emoji Regex
+
+Emoji Regex is a regular expression used to determine which emoji to draw.
+
+```ruby
+Prawn::Emoji.config.regex # => ::Unicode::Emoji::REGEX_VALID by default
+```
+
+You can override it with [unicode-emoji's Regex](https://github.com/janlelis/unicode-emoji#regex):
+
+```ruby
+Prawn::Emoji.config.regex = ::Unicode::Emoji::REGEX_INCLUDE_TEXT
+```
+
+
 ## Supported Versions
 
 ### Ruby
