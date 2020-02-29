@@ -50,7 +50,16 @@ module Prawn
         x = image.adjust_x(base_x + @document.width_of(base_text + text.left, text_options))
         y = image.adjust_y(base_y)
 
-        @document.image image.path, at: [x, y], width: image.width
+        # Prawn 2.2 does not close the image file when Pathname is passed to Document#image method.
+        #
+        # FIXME: This issue has been fixed by https://github.com/prawnpdf/prawn/pull/1090 but not released.
+        # Fix as follows after the PR released.
+        #
+        #   @document.image(image_file.path, at: [x, y], width: image.width)
+        #
+        File.open(image.path, 'r') do |image_file|
+          @document.image(image_file, at: [x, y], width: image.width)
+        end
       end
     end
   end

@@ -4,6 +4,10 @@
 
  * Ruby 2.7.0 support
 
+### Bug Fixes
+
+ * Close opened image file #31
+
 ## 3.1.0
 
 ### Minor Enhancements
