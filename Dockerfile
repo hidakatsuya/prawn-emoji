@@ -8,11 +8,5 @@ RUN apt-get install -y libpoppler-glib-dev poppler-utils libwxgtk3.0-dev && curl
 
 RUN mkdir /prawn-emoji
 
-ADD . /prawn-emoji
-
 WORKDIR /prawn-emoji
-
-RUN bundle install
-
-ENTRYPOINT [ "bundle", "exec", "rake" ]
-CMD [ "test:pdf" ]
+VOLUME /prawn-emoji
