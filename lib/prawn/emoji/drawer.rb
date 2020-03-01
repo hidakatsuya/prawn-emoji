@@ -57,7 +57,7 @@ module Prawn
         #
         #   @document.image(image_file.path, at: [x, y], width: image.width)
         #
-        File.open(image.path, 'r') do |image_file|
+        File.open(image.path, 'rb') do |image_file|
           @document.image(image_file, at: [x, y], width: image.width)
         end
       end
