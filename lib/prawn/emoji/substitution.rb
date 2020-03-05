@@ -7,7 +7,7 @@ module Prawn
     class Substitution
       extend Forwardable
 
-      FULL_SIZE_SPACE = '　'.freeze
+      FULL_SIZE_SPACE = '　'
       HALF_SIZE_SPACE = Prawn::Text::NBSP
 
       def_delegator :@document, :width_of
