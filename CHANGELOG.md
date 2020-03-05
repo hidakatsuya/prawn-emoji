@@ -3,11 +3,15 @@
 ### Minor Enhancements
 
  * Ruby 2.7.0 support
- * Emoji Regex can now be overridden in `Prawn::Emoji.config.regex` #30 [@aried3r]
+ * Emoji Regex is now configurable using `Prawn::Emoji.config.regex` #30
+   ```
+   Prawn::Emoji.config.regex # => ::Unicode::Emoji::REGEX_VALID by default
+   Prawn::Emoji.config.regex = ::Unicode::Emoji::REGEX_INCLUDE_TEXT
+   ```
 
 ### Bug Fixes
 
- * Close opened image file #31 [@aried3r]
+ * Fixed: Emoji Drawer does not close the file descriptor of emoji image #31
 
 ## 3.1.0
 
