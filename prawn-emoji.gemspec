@@ -26,6 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '>= 0'
   spec.add_development_dependency 'minitest', '>= 5.12.2'
   spec.add_development_dependency 'rr', '>= 0'
-  spec.add_development_dependency 'pdf-inspector', '>= 1.2.0'
   spec.add_development_dependency 'rubyzip', '>= 1.0.0'
 end

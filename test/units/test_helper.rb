@@ -7,4 +7,3 @@ require 'prawn/emoji'
 
 require 'minitest/autorun'
 require 'rr'
-require 'pdf/inspector'
