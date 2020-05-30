@@ -1,5 +1,9 @@
 ## Master (Unreleased)
 
+## 3.3.0
+
+### Minor Enhancements
+
  * Support Emoji 13.0 #33 [@aried3r]
 
 ## 3.2.0
