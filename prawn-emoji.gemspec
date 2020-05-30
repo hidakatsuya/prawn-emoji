@@ -1,6 +1,4 @@
-rootdir = File.expand_path(File.dirname(__FILE__))
-
-require "#{rootdir}/lib/prawn/emoji/version"
+require_relative 'lib/prawn/emoji/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'prawn-emoji'
