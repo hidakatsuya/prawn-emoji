@@ -126,8 +126,7 @@ You can use the Docker container for development. This container contains the li
 
 ```
 $ docker build -t prawn-emoji-dev .
-
-$ docker run -v $PWD:/prawn-emoji -it prawn-emoji-dev bash
+$ docker run -v $PWD:/prawn-emoji:cached -it prawn-emoji-dev bash
 
 > /prawn-emoji#
 ```
