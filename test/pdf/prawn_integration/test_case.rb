@@ -66,6 +66,12 @@ module PrawnIntegration
             prawn.text_box '🍵right👉alignment🍣', align: :right, at: [0, prawn.cursor], width: 300
           }
         end
+
+        pdf.section 'Rotation' do
+          pdf.raw { |prawn|
+            prawn.text_box '🍣' * 10, rotate: 315, at: [10, prawn.cursor], width: 150, height: 20
+          }
+        end
       end
 
       assert_match_pdf
