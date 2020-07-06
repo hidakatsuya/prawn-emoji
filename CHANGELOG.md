@@ -1,7 +1,13 @@
 ## Master (Unreleased)
 
- * Redesign the emoji drawing architecture
- * Drop ruby 2.4 support
+## 4.0.0-beta.1
+
+### Breaking Changes
+
+* Changes how to draw text including emoji:
+  * The result of drawing emoji will changes slightly
+  * prawn-emoji no longer requires Japanese fonts because it stopped replacing an emoji with the substitution char such as full-width space
+* Drop ruby 2.4 support
 
 ## 3.3.0
 
