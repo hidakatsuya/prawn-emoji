@@ -42,7 +42,7 @@ class PdfTest < Minitest::Test
   end
 
   def match_pdf?
-    system("diff-pdf --output-diff=#{diff_pdf} #{expect_pdf} #{actual_pdf}")
+    system("diff-pdf --mark-differences --output-diff=#{diff_pdf} #{expect_pdf} #{actual_pdf}")
   end
 
   class Pdf
