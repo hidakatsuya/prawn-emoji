@@ -65,7 +65,7 @@ require 'prawn/emoji'
 
 ### True Type Font Required
 
-In order to draw Emoji, you must use a True Type Font. I recommend you use a Japanese font.
+In order to draw Emoji, you must use a True Type Font.
 
 ## Configuring Emoji Regex
 
