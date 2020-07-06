@@ -9,17 +9,67 @@ describe Prawn::Emoji::Drawable do
 
   let(:document_test) { DocumentTest.new.extend Prawn::Emoji::Drawable }
 
-  describe '#draw_text!' do
-    it 'calls Emoji::Drawer#draw before processing self' do
-      any_instance_of(Prawn::Emoji::Drawer) do |drawer|
-        mock(drawer).draw('text', { option: 'value' }).once
-      end
-      document_test.draw_text!('text', option: 'value')
-    end
-  end
+  describe '#draw_text!(text, options)' do
+    subject { document_test.draw_text!(text, options) }
 
-  describe '#emoji_drawer' do
-    subject { document_test.send :emoji_drawer }
-    it { _(subject).must_be_instance_of Prawn::Emoji::Drawer }
+    describe 'the :emoji option is set true' do
+      let(:options) { { emoji: true } }
+
+      describe 'the text includes an emoji' do
+        let(:text) { 'text🍣' }
+
+        it 'calls Emoji::Drawer#draw' do
+          mock(document_test.send(:emoji_drawer)).draw(text, options).once
+          subject
+        end
+      end
+
+      describe 'the text does not include any emoji' do
+        let(:text) { 'text' }
+
+        it 'never calls Emoji::Drawer#draw' do
+          mock(document_test.send(:emoji_drawer)).draw(text, options).never
+          subject
+        end
+      end
+
+      describe 'the text encoding is not utf-8' do
+        let(:text) { 'text'.encode('ascii-8bit') }
+
+        it 'never calls Emoji::Drawer#draw' do
+          mock(document_test.send(:emoji_drawer)).draw(text, options).never
+          subject
+        end
+      end
+
+      describe 'the text is empty' do
+        let(:text) { '' }
+
+        it 'never calls Emoji::Drawer#draw' do
+          mock(document_test.send(:emoji_drawer)).draw(text, options).never
+          subject
+        end
+      end
+    end
+
+    describe 'the :emoji option is set false' do
+      let(:options) { { emoji: false } }
+      let(:text) { 'text🍣' }
+
+      it 'never calls Emoji::Drawer#draw' do
+        mock(document_test.send(:emoji_drawer)).draw(text, options).never
+        document_test.draw_text!(text, options)
+      end
+    end
+
+    describe 'the :emoji option is not set' do
+      let(:options) { { } }
+      let(:text) { 'text🍣' }
+
+      it 'calls Emoji::Drawer#draw' do
+        mock(document_test.send(:emoji_drawer)).draw(text, options).once
+        document_test.draw_text!(text, options)
+      end
+    end
   end
 end

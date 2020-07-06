@@ -3,14 +3,14 @@
 require 'units/test_helper'
 
 describe Prawn::Emoji::Text do
-  subject { Prawn::Emoji::Text.new(text) }
+  subject { Prawn::Emoji::Text.new(text, 12) }
 
   describe 'partition by emoji' do
     let(:text) { 'leftleft🍣remaining'}
 
     it { _(subject.left).must_equal 'leftleft' }
     it { _(subject.remaining).must_equal 'remaining' }
-    it { _(subject.emoji).must_be_instance_of Prawn::Emoji::Unicode }
+    it { _(subject.emoji).must_be_instance_of Prawn::Emoji::Char }
     it { _(subject.emoji.to_s).must_equal '🍣' }
 
     describe 'no emoji' do
@@ -39,12 +39,12 @@ describe Prawn::Emoji::Text do
   end
 
   describe '#contains_emoji?' do
-    describe 'includes' do
+    describe 'includes an emoji' do
       let(:text) { '👍' }
       it { _(subject).must_be :contains_emoji? }
     end
 
-    describe 'not includes' do
+    describe 'not include any emoji' do
       let(:text) { 'text only' }
       it { _(subject).wont_be :contains_emoji? }
     end

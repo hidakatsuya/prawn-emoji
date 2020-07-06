@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'unicode'
+require_relative 'char'
 
 module Prawn
   module Emoji
     class Text
       attr_reader :left, :emoji, :remaining
 
-      def initialize(text)
+      def initialize(text, font_size)
+        @text = text
         @left, emoji_char, @remaining = partition_by_emoji(text)
-        @emoji = Emoji::Unicode.new(emoji_char) unless emoji_char.empty?
+        @emoji = Emoji::Char.new(emoji_char, font_size) unless emoji_char.empty?
       end
 
       def contains_emoji?
@@ -21,7 +22,7 @@ module Prawn
       end
 
       def to_s
-        left_with_emoji + remaining
+        @text
       end
 
       private

@@ -1,5 +1,7 @@
 ## Master (Unreleased)
 
+ * Redesign the emoji drawing architecture
+
 ## 3.3.0
 
 ### Minor Enhancements

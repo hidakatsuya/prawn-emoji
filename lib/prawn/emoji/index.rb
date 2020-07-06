@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'unicode'
+require 'yaml'
 
 module Prawn
   module Emoji
