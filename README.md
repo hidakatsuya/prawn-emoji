@@ -98,7 +98,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/hidaka
 
 ## Development
 
-### How to test
+### Running tests
 
 Run all tests:
 
@@ -120,9 +120,9 @@ $ bundle exec rake test:pdf
 
 In order to run `test:pdf`, you need to install [diff-pdf](https://github.com/vslavik/diff-pdf) in your environment, or you can run test in the docker container as below.
 
-### How to develop in Docker container
+### Running tests in the docker container for development
 
-You can use the Docker container for development. This container contains the libraries required for testing, such as diff-pdf.
+You can use the docker container for development. This container contains the libraries required for testing, such as diff-pdf.
 
 ```
 $ docker build -t prawn-emoji:latest .
@@ -138,7 +138,7 @@ You can run test:
 > src# bundle exec rake test
 ```
 
-### How to update bundled emojis
+### Updating the bundled emojis
 
 ```
 $ bundle exec rake emoji:update VERSION=<Twemoji version>
