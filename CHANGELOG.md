@@ -1,6 +1,7 @@
 ## Master (Unreleased)
 
  * Redesign the emoji drawing architecture
+ * Drop ruby 2.4 support
 
 ## 3.3.0
 
