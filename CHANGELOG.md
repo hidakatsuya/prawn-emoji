@@ -1,6 +1,6 @@
 ## Master (Unreleased)
 
-## 4.0.0-beta.1
+## 4.0.0.beta.1
 
 ### Breaking Changes
 
