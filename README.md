@@ -138,6 +138,12 @@ You can run test:
 > src# bundle exec rake test
 ```
 
+Or, you can run test instantly like this:
+
+```
+$ docker run --rm -v $PWD:/src:cached -it prawn-emoji bash -c "bundle install && bundle exec rake test:pdf"
+```
+
 ### Updating the bundled emojis
 
 ```
