@@ -7,6 +7,10 @@ require_relative 'text'
 module Prawn
   module Emoji
     class Drawer
+      def self.drawable?(text)
+        text.encoding == ::Encoding::UTF_8 && Emoji.regex.match?(text)
+      end
+
       def initialize(document)
         @document = document
         @emoji_index = Emoji::Index.new
@@ -18,9 +22,9 @@ module Prawn
         emoji_text = Emoji::Text.new(text, document.font_size)
 
         while emoji_text.contains_emoji? do
-          if emoji_index.include?(emoji_text.emoji.codepoint)
+          if emoji_index.include?(emoji_text.emoji_char.codepoint)
             cursor_x += draw_text(emoji_text.left, at: [cursor_x, cursor_y], text_options: text_options)
-            cursor_x += draw_emoji(emoji_text.emoji, at: [cursor_x, cursor_y])
+            cursor_x += draw_emoji(emoji_text.emoji_char, at: [cursor_x, cursor_y])
           else
             cursor_x += draw_text(emoji_text.left_with_emoji, at: [cursor_x, cursor_y], text_options: text_options)
           end

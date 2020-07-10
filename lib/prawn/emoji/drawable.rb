@@ -8,12 +8,12 @@ module Prawn
       # == Additional Options
       # <tt>:emoji</tt>:: <tt>boolean</tt>. Whether or not to draw an emoji [true]
       def draw_text!(text, options)
-        draw_emoji = options.fetch(:emoji, true)
+        draw_emoji = options.delete(:emoji) { true }
 
-        if draw_emoji && text.encoding == ::Encoding::UTF_8 && Emoji.regex.match?(text)
+        if draw_emoji && Emoji::Drawer.drawable?(text)
           emoji_drawer.draw(text.to_s, options)
         else
-          super(text, options)
+          super
         end
       end
 

@@ -10,14 +10,14 @@ describe Prawn::Emoji::Text do
 
     it { _(subject.left).must_equal 'leftleft' }
     it { _(subject.remaining).must_equal 'remaining' }
-    it { _(subject.emoji).must_be_instance_of Prawn::Emoji::Char }
-    it { _(subject.emoji.to_s).must_equal '🍣' }
+    it { _(subject.emoji_char).must_be_instance_of Prawn::Emoji::Char }
+    it { _(subject.emoji_char.to_s).must_equal '🍣' }
 
     describe 'no emoji' do
       let(:text) { 'abcd' }
 
       it { _(subject.left).must_equal 'abcd' }
-      it { _(subject.emoji).must_be_nil }
+      it { _(subject.emoji_char).must_be_nil }
       it { _(subject.remaining).must_equal '' }
     end
 
@@ -25,7 +25,7 @@ describe Prawn::Emoji::Text do
       let(:text) { '🎉' }
 
       it { _(subject.left).must_equal '' }
-      it { _(subject.emoji.to_s).must_equal '🎉' }
+      it { _(subject.emoji_char.to_s).must_equal '🎉' }
       it { _(subject.remaining).must_equal '' }
     end
 
@@ -33,7 +33,7 @@ describe Prawn::Emoji::Text do
       let(:text) { '' }
 
       it { _(subject.left).must_equal '' }
-      it { _(subject.emoji).must_be_nil }
+      it { _(subject.emoji_char).must_be_nil }
       it { _(subject.remaining).must_equal '' }
     end
   end
