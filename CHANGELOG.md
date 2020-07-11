@@ -9,7 +9,7 @@
 ### Breaking Changes
 
 * Drop ruby 2.4 support
-* The drawing results of emoji will be chnaged slightly due to the new emoji drawing process
+* The drawing results of emoji will be changed slightly due to the new emoji drawing process
 
 ### Bug Fixes
 
