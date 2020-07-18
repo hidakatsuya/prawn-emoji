@@ -11,10 +11,12 @@ module Prawn
       #
       # The following values are available (Default is `Unicode::Emoji::REGEX_VALID`):
       # https://github.com/janlelis/unicode-emoji#regex.
-      :regex
+      :regex,
+
+      keyword_init: true
     )
     def self.config
-      @config ||= Config.new(::Unicode::Emoji::REGEX_VALID)
+      @config ||= Config.new(regex: ::Unicode::Emoji::REGEX_VALID)
     end
 
     def self.regex
