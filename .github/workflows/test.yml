@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: Test on ruby ${{ matrix.ruby_version }}
+    name: Test on ruby ${{ matrix.ruby_version }} and prawn ${{ matrix.prawn_version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -12,8 +12,13 @@ jobs:
           - 2.5.x
           - 2.6.x
           - 2.7.x
+        prawn_version:
+          - 2.2
+          - 2.3
+
     steps:
     - uses: actions/checkout@v1
+
     - name: Set up diff-pdf
       run: |
         sudo apt-get update
@@ -21,12 +26,14 @@ jobs:
         git clone https://github.com/vslavik/diff-pdf.git -b v0.4.1 --depth 1 /tmp/diff-pdf-src
         cd /tmp/diff-pdf-src
         ./bootstrap && ./configure && make && sudo make install
+
     - name: Set up Ruby ${{ matrix.ruby_version }}
       uses: actions/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
+
     - name: Build and test with Rake
       run: |
         gem install bundler
-        bundle install --jobs 4 --retry 3
+        bundle install --gemfile test/gemfiles/prawn-${{ matrix.prawn_version }} --jobs 4 --retry 3
         bundle exec rake test
