@@ -84,11 +84,31 @@ describe Prawn::Emoji::Drawer do
     describe '#draw_text' do
       subject { drawer.send(:draw_text, text, at: [100, 200], text_options: {}) }
 
-      let(:text) { 'text' }
+      let(:character_spacing) { 5 }
 
-      it 'returns the text width' do
-        stub(document).character_spacing { 5 }
-        _(subject).must_equal document.width_of(text)
+      before { stub(document).character_spacing { character_spacing } }
+
+      describe 'text is empty' do
+        let(:text) { '' }
+
+        it 'returns 0 when the text is empty' do
+          _(subject).must_equal 0
+        end
+      end
+
+      describe 'text is not empty' do
+        let(:text) { 'text' }
+
+        it 'returns the text width including the character spacing at the end of the text' do
+          expect_width =
+            if Prawn::VERSION >= '2.3.0'
+              document.width_of(text) + character_spacing
+            else
+              document.width_of(text)
+            end
+
+          _(subject).must_equal expect_width
+        end
       end
     end
   end

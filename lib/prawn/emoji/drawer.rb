@@ -44,7 +44,16 @@ module Prawn
 
       def draw_text(text, at:, text_options:)
         draw_text!(text, at: at, text_options: text_options)
-        document.width_of(text, text_options)
+
+        width = document.width_of(text, text_options)
+
+        if Prawn::VERSION >= '2.3.0'
+          # In prawn v2.3.0, the character spacing at the end of the text is not included in the calculated text width.
+          # https://github.com/prawnpdf/prawn/pull/1117
+          width > 0 ? width + document.character_spacing : width
+        else
+          width
+        end
       end
 
       def draw_emoji(emoji_char, at:)
