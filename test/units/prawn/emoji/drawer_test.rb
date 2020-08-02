@@ -24,7 +24,8 @@ describe Prawn::Emoji::Drawer do
 
     it do
       mock(document).draw_text!(/aaa|bbb|ccc|/, hash_including(emoji: false)).times(4)
-      mock(document).image(is_a(File), is_a(Hash)).times(3)
+      any_instance_of(Prawn::Emoji::Image) { |image| mock(image).render.with_any_args.times(3) }
+
       subject
     end
   end
@@ -35,7 +36,8 @@ describe Prawn::Emoji::Drawer do
 
     it do
       mock(document).draw_text!(text, text_options.merge(emoji: false)).once
-      mock(document).image.never
+      any_instance_of(Prawn::Emoji::Image) { |image| mock(image).render.with_any_args.never }
+
       subject
     end
   end
