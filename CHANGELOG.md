@@ -1,5 +1,11 @@
 ## Master (Unreleased)
 
+## 4.1.0
+
+### Minor Enhancements
+
+* Add prawn 2.3.0 support #35
+
 ## 4.0.0
 
 ### Enhancements
