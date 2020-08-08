@@ -44,26 +44,23 @@ module Prawn
 
       def draw_text(text, at:, text_options:)
         draw_text!(text, at: at, text_options: text_options)
-        document.width_of(text, text_options)
+
+        width = document.width_of(text, text_options)
+
+        if Prawn::VERSION >= '2.3.0'
+          # In prawn v2.3.0, the character spacing at the end of the text is not included in the calculated text width.
+          # https://github.com/prawnpdf/prawn/pull/1117
+          width > 0 ? width + document.character_spacing : width
+        else
+          width
+        end
       end
 
       def draw_emoji(emoji_char, at:)
         emoji_image = Emoji::Image.new(emoji_char)
+        emoji_image.render(document, at: at)
 
-        x, y = at
-
-        # Prawn 2.2 does not close the image file when Pathname is passed to Document#image method.
-        #
-        # FIXME: This issue has been fixed by https://github.com/prawnpdf/prawn/pull/1090 but not released.
-        # Fix as follows after the PR released.
-        #
-        #   @document.image(image_file.path, at: [x, y], width: image.width)
-        #
-        File.open(emoji_image.path, 'rb') do |image_file|
-          @document.image(image_file, at: [x, y + emoji_char.height], width: emoji_char.width)
-        end
-
-        emoji_char.width + document.character_spacing
+        emoji_image.width + document.character_spacing
       end
     end
   end

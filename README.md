@@ -90,7 +90,7 @@ Prawn::Emoji.config.regex = ::Unicode::Emoji::REGEX_INCLUDE_TEXT
 
 ### Prawn
 
-2.2+
+2.2, 2.3
 
 ## Contributing
 
