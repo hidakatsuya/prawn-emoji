@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_path  = 'lib'
 
   spec.add_runtime_dependency 'prawn', '~> 2.2'
-  spec.add_runtime_dependency 'unicode-emoji', '~> 2.5.0'
+  spec.add_runtime_dependency 'unicode-emoji', '>= 2.5', '< 2.7'
 end
