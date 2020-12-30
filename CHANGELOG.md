@@ -1,6 +1,7 @@
 ## Master (Unreleased)
 
 * Update to Twemoji v13.0.1
+* Depends on unicode-emoji v2.7.x
 
 ## 4.1.0
 
