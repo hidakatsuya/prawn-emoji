@@ -110,7 +110,7 @@ namespace :emoji do
 
       def convert
         codepoints = original_name.gsub('.png', '').split('-')
-        Prawn::Emoji::Unicode.format_codepoint(codepoints) + '.png'
+        Prawn::Emoji::Char.format_codepoint(codepoints) + '.png'
       end
     end
   end
