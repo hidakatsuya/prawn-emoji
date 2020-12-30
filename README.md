@@ -41,6 +41,20 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 [prawn-emoji/issues](https://github.com/hidakatsuya/prawn-emoji/labels/known%20issue)
 
 
+## Supported Versions
+
+### Emoji
+
+13.0
+
+### Prawn
+
+2.2, 2.3
+
+### Ruby
+
+2.5, 2.6, 2.7
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -80,17 +94,6 @@ You can override it with [unicode-emoji's Regex](https://github.com/janlelis/uni
 ```ruby
 Prawn::Emoji.config.regex = ::Unicode::Emoji::REGEX_INCLUDE_TEXT
 ```
-
-
-## Supported Versions
-
-### Ruby
-
-2.5, 2.6, 2.7
-
-### Prawn
-
-2.2, 2.3
 
 ## Contributing
 
