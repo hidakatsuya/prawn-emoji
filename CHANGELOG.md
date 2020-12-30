@@ -1,5 +1,7 @@
 ## Master (Unreleased)
 
+* Update to Twemoji v13.0.1
+
 ## 4.1.0
 
 ### Minor Enhancements
