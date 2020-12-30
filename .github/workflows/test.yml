@@ -32,8 +32,10 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby_version }}
 
-    - name: Build and test with Rake
+    - name: Install dependencies
       run: |
         gem install bundler
         bundle install --gemfile gemfiles/prawn-${{ matrix.prawn_version }}.gemfile --jobs 4 --retry 3
-        bundle exec rake test
+
+    - name: Run Tests
+      run: bundle exec rake test
