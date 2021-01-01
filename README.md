@@ -49,11 +49,11 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 
 ### Prawn
 
-2.2, 2.3
+2.2, 2.3, 2.4
 
 ### Ruby
 
-2.5, 2.6, 2.7
+2.5, 2.6, 2.7, 3.0
 
 ## Installation
 

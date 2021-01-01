@@ -1,5 +1,7 @@
 ## Master (Unreleased)
 
+* Ruby 3.0.0 support
+* Prawn 2.4.0 support
 * Update to Twemoji v13.0.1
 * Depends on unicode-emoji v2.7.x
 
