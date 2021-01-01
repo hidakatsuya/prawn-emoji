@@ -28,6 +28,7 @@ module Prawn
           else
             cursor_x += draw_text(emoji_text.left_with_emoji, at: [cursor_x, cursor_y], text_options: text_options)
           end
+
           emoji_text = Emoji::Text.new(emoji_text.remaining, document.font_size)
         end
 

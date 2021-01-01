@@ -2,14 +2,8 @@
 
 require 'units/test_helper'
 
-describe Prawn::Emoji::Char do
-  def char(emoji)
-    Prawn::Emoji::Char.new(emoji, font_size)
-  end
-
-  let(:font_size) { 12 }
-
-  describe '.format_codepoint' do
+class Prawn::Emoji::CharTest < Test::Unit::TestCase
+  test '.format_codepoint' do
     [
       [%w(abcd), 'abcd'],
       [%w(ABCD), 'abcd'],
@@ -17,44 +11,51 @@ describe Prawn::Emoji::Char do
       [%w(1234 5678 9012), '1234-5678-9012'],
       [%w(A B C), '000a-000b-000c']
     ].each do |(args, expect)|
-      it { _(Prawn::Emoji::Char.format_codepoint(args)).must_equal expect }
+      assert_equal expect, Prawn::Emoji::Char.format_codepoint(args)
     end
   end
 
-  describe '#==' do
-    it { _(char('🐟')).must_be :==, char('🐟') }
-    it { _(char('🐟')).wont_be :==, char('🍣') }
+  test '#==' do
+    assert_true emoji_char('🐟') == emoji_char('🐟')
+    assert_false emoji_char('🐟') == emoji_char('🍣')
   end
 
-  describe '#codepoint' do
-    it { _(char('🍣').codepoint).must_equal '1f363' }
-    it { _(char('🇯🇵').codepoint).must_equal '1f1ef-1f1f5' }
+  test '#codepoint' do
+    assert_equal '1f363', emoji_char('🍣').codepoint
+    assert_equal '1f1ef-1f1f5', emoji_char('🇯🇵').codepoint
   end
 
-  describe '#to_s' do
-    it { _(char('🍣').to_s).must_equal '🍣' }
-    it { _(char('❤️').to_s).must_equal "\u2764\ufe0f" }
+  test '#to_s' do
+    assert_equal '🍣', emoji_char('🍣').to_s
+    assert_equal "\u2764\ufe0f", emoji_char('❤️').to_s
   end
 
-  describe 'delete variation selector' do
-    describe 'no selector' do
-      it { _(char("\u2600").codepoint).must_equal '2600' }
-    end
-
-    describe 'with text presentation selector' do
-      it { _(char("\u2600\ufe0e").codepoint).must_equal '2600' }
-    end
-
-    describe 'with emoji presentation selector' do
-      it { _(char("\u2600\ufe0f").codepoint).must_equal '2600' }
+  test '#width' do
+    emoji_char('🍣').tap do |char|
+      assert_equal char.font_size * 0.85, char.width
     end
   end
 
-  describe '#width' do
-    it { _(char('🍣').width).must_equal font_size * 0.85 }
+  test '#height' do
+    emoji_char('🍣').tap do |char|
+      assert_equal char.font_size * 0.8, char.height
+    end
   end
 
-  describe '#height' do
-    it { _(char('🍣').height).must_equal font_size * 0.8 }
+  test 'Removing all variation selectors' do
+    # An emoji with no selector
+    assert_equal '2600', emoji_char("\u2600").codepoint
+
+    # An emoji with text presentation selector' do
+    assert_equal '2600', emoji_char("\u2600\ufe0e").codepoint
+
+    # An emoji with emoji presentation selector' do
+    assert_equal '2600', emoji_char("\u2600\ufe0f").codepoint
+  end
+
+  private
+
+  def emoji_char(emoji, font_size = 12)
+    Prawn::Emoji::Char.new(emoji, font_size)
   end
 end

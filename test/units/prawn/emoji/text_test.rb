@@ -2,61 +2,52 @@
 
 require 'units/test_helper'
 
-describe Prawn::Emoji::Text do
-  subject { Prawn::Emoji::Text.new(text, 12) }
-
-  describe 'partition by emoji' do
-    let(:text) { 'leftleft🍣remaining'}
-
-    it { _(subject.left).must_equal 'leftleft' }
-    it { _(subject.remaining).must_equal 'remaining' }
-    it { _(subject.emoji_char).must_be_instance_of Prawn::Emoji::Char }
-    it { _(subject.emoji_char.to_s).must_equal '🍣' }
-
-    describe 'no emoji' do
-      let(:text) { 'abcd' }
-
-      it { _(subject.left).must_equal 'abcd' }
-      it { _(subject.emoji_char).must_be_nil }
-      it { _(subject.remaining).must_equal '' }
+class Prawn::Emoji::TextTest < Test::Unit::TestCase
+  test 'Splitting text with an emoji' do
+    emoji_text('left🍣remaining').tap do |text|
+      assert_equal 'left', text.left
+      assert_instance_of Prawn::Emoji::Char, text.emoji_char
+      assert_equal '🍣', text.emoji_char.char
+      assert_equal 12, text.emoji_char.font_size
+      assert_equal 'remaining', text.remaining
     end
 
-    describe 'emoji only' do
-      let(:text) { '🎉' }
-
-      it { _(subject.left).must_equal '' }
-      it { _(subject.emoji_char.to_s).must_equal '🎉' }
-      it { _(subject.remaining).must_equal '' }
+    emoji_text('no emoji').tap do |text|
+      assert_equal 'no emoji', text.left
+      assert_nil text.emoji_char
+      assert_equal '', text.remaining
     end
 
-    describe 'empty' do
-      let(:text) { '' }
+    emoji_text('🎉').tap do |text|
+      assert_equal '', text.left
+      assert_equal '🎉', text.emoji_char.char
+      assert_equal '', text.remaining
+    end
 
-      it { _(subject.left).must_equal '' }
-      it { _(subject.emoji_char).must_be_nil }
-      it { _(subject.remaining).must_equal '' }
+    emoji_text('').tap do |text|
+      assert_equal '', text.left
+      assert_nil text.emoji_char
+      assert_equal '', text.remaining
     end
   end
 
-  describe '#contains_emoji?' do
-    describe 'includes an emoji' do
-      let(:text) { '👍' }
-      it { _(subject).must_be :contains_emoji? }
-    end
-
-    describe 'not include any emoji' do
-      let(:text) { 'text only' }
-      it { _(subject).wont_be :contains_emoji? }
-    end
+  test '#contains_emoji?' do
+    assert_true emoji_text('👍').contains_emoji?
+    assert_false emoji_text('text only').contains_emoji?
   end
 
-  describe '#left_with_emoji' do
-    let(:text) { 'aaaaaa📌bbbbbb' }
-    it { _(subject.left_with_emoji).must_equal 'aaaaaa📌' }
+  test '#left_with_emoji' do
+    assert_equal 'aaaaaa📌', emoji_text('aaaaaa📌bbbbbb').left_with_emoji
+    assert_equal 'aaaaaa', emoji_text('aaaaaa').left_with_emoji
   end
 
-  describe '#to_s' do
-    let(:text) { 'aaaaaa📌bbbbbb' }
-    it { _(subject.to_s).must_equal text }
+  test '#to_s' do
+    assert_equal 'aaaaaa📌bbbbbb', emoji_text('aaaaaa📌bbbbbb').to_s
+  end
+
+  private
+
+  def emoji_text(text)
+    Prawn::Emoji::Text.new(text, 12)
   end
 end

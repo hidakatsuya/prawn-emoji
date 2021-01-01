@@ -3,20 +3,17 @@
 require 'units/test_helper'
 require 'yaml'
 
-describe Prawn::Emoji::Index do
-  let(:index) { Prawn::Emoji::Index.new }
+class Prawn::Emoji::IndexTest < Test::Unit::TestCase
+  setup { @emoji_index = Prawn::Emoji::Index.new }
 
-  describe '#codepoints' do
-    subject { index.codepoints }
-
-    let(:all_codes) { YAML.load_file(Prawn::Emoji.root.join('emoji', 'index.yml')) }
-
-    it { _(subject).must_equal all_codes }
+  test '#codepoints' do
+    all_emoji_codepoints = YAML.load_file(Prawn::Emoji.root.join('emoji', 'index.yml'))
+    assert_equal all_emoji_codepoints, @emoji_index.codepoints
   end
 
-  describe '#include?' do
-    it { _(index.include?('0023-20e3')).must_equal true }
-    it { _(index.include?('3299')).must_equal true }
-    it { _(index.include?('unknown')).must_equal false }
+  test '#include?' do
+    assert_true @emoji_index.include?('0023-20e3')
+    assert_true @emoji_index.include?('3299')
+    assert_false @emoji_index.include?('unknown-codepoint')
   end
 end

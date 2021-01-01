@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'prawn', '~> 2.2'
   spec.add_runtime_dependency 'unicode-emoji', '~> 2.7.1'
 
-  spec.add_development_dependency 'rake', '>= 0'
-  spec.add_development_dependency 'minitest', '>= 5.12.2'
-  spec.add_development_dependency 'rr', '>= 0'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'test-unit', '>= 3.3.9'
+  spec.add_development_dependency 'test-unit-rr', '>= 1.0.5'
   spec.add_development_dependency 'rubyzip', '>= 1.0.0'
 end

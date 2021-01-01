@@ -5,10 +5,10 @@ $:.unshift File.expand_path('../../lib', __FILE__)
 require 'prawn'
 require 'prawn/emoji'
 
-require 'minitest/autorun'
+require 'test/unit'
 require 'pathname'
 
-class PdfTest < Minitest::Test
+class PdfTest < Test::Unit::TestCase
   class << self
     attr_reader :case_name
 
@@ -19,7 +19,7 @@ class PdfTest < Minitest::Test
 
   def assert_match_pdf
     if expect_pdf.exist?
-      assert match_pdf?, 'actual.pdf does not match expect.pdf. Check diff.pdf for details.'
+      assert_true match_pdf?, 'actual.pdf does not match expect.pdf. Check diff.pdf for details.'
     else
       flunk 'expect.pdf does not exist.'
     end
