@@ -1,5 +1,9 @@
 ## Master (Unreleased)
 
+## 4.2.0
+
+### Minor Enhancements
+
 * Ruby 3.0.0 support
 * Prawn 2.4.0 support
 * Update to Twemoji v13.0.1
