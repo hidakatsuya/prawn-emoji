@@ -34,7 +34,7 @@ class Prawn::Emoji::ImageTest < Test::Unit::TestCase
     position = { x: 100, y: 200 }
 
     mock(document).image(
-      anything,
+      emoji_image.path,
       at: [position[:x], position[:y] + emoji_char.height],
       width: emoji_char.width
     ).once

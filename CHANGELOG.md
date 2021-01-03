@@ -1,5 +1,7 @@
 ## Master (Unreleased)
 
+* Drop Prawn 2.2 support
+
 ## 4.2.0
 
 ### Minor Enhancements

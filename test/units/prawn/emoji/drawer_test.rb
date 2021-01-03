@@ -76,14 +76,8 @@ class Prawn::Emoji::DrawerTest < Test::Unit::TestCase
     test '#draw_text returns the text width including the character spacing at the end of the text' do
       text = 'text'
 
-      expect_width =
-        if Prawn::VERSION >= '2.3.0'
-          @document.width_of(text) + @document.character_spacing
-        else
-          @document.width_of(text)
-        end
-
-      assert_equal expect_width, @drawer.send(:draw_text, text, at: [100, 200], text_options: @text_options)
+      assert_equal @document.width_of(text) + @document.character_spacing,
+        @drawer.send(:draw_text, text, at: [100, 200], text_options: @text_options)
     end
   end
 end

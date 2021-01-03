@@ -49,7 +49,7 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 
 ### Prawn
 
-2.2, 2.3, 2.4
+2.3, 2.4
 
 ### Ruby
 
