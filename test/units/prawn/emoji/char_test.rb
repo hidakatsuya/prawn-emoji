@@ -46,10 +46,10 @@ class Prawn::Emoji::CharTest < Test::Unit::TestCase
     # An emoji with no selector
     assert_equal '2600', emoji_char("\u2600").codepoint
 
-    # An emoji with text presentation selector' do
+    # An emoji with text presentation selector
     assert_equal '2600', emoji_char("\u2600\ufe0e").codepoint
 
-    # An emoji with emoji presentation selector' do
+    # An emoji with emoji presentation selector
     assert_equal '2600', emoji_char("\u2600\ufe0f").codepoint
   end
 
