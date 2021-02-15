@@ -1,6 +1,6 @@
 # Prawn::Emoji
 
-[![Test](https://github.com/hidakatsuya/prawn-emoji/workflows/Test/badge.svg?branch=master)](https://github.com/hidakatsuya/prawn-emoji/actions)
+[![Test](https://github.com/hidakatsuya/prawn-emoji/workflows/Test/badge.svg?branch=main)](https://github.com/hidakatsuya/prawn-emoji/actions)
 [![Gem Version](https://badge.fury.io/rb/prawn-emoji.svg)](https://badge.fury.io/rb/prawn-emoji)
 [![Maintainability](https://api.codeclimate.com/v1/badges/edcd23ef38c2e393513b/maintainability)](https://codeclimate.com/github/hidakatsuya/prawn-emoji/maintainability)
 
@@ -24,7 +24,7 @@ For execute this code, you need [DejaVuSans.ttf](http://sourceforge.net/projects
   * Emoji is provided by [Twemoji](https://github.com/twitter/twemoji)
   * Support Singleton/Combining/Modifier/Flag/ZWJ Sequence Emoji
 
-See [test/pdf/emoji_rendering/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/master/test/pdf/emoji_rendering/expect.pdf) for details.
+See [test/pdf/emoji_rendering/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/main/test/pdf/emoji_rendering/expect.pdf) for details.
 
 ### Prawn Integration
 
@@ -34,7 +34,7 @@ See [test/pdf/emoji_rendering/expect.pdf](https://github.com/hidakatsuya/prawn-e
   * Alignment support
   * Font size support
 
-See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/master/test/pdf/prawn_integration/expect.pdf) for details.
+See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/main/test/pdf/prawn_integration/expect.pdf) for details.
 
 ### Known Issues
 

@@ -1,4 +1,4 @@
-## Master (Unreleased)
+## Main (Unreleased)
 
 * Drop Prawn 2.2 support
 
