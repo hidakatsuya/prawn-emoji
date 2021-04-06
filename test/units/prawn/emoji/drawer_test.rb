@@ -19,9 +19,7 @@ class Prawn::Emoji::DrawerTest < Test::Unit::TestCase
     text = "aaa🍣bbb🍣🍣ccc"
 
     mock(@document).draw_text!(/aaa|bbb|ccc|/, hash_including(emoji: false)).times(4)
-    mock.proxy(Prawn::Emoji::Image).new(Prawn::Emoji::Char.new('🍣', @font_size)).times(3) do |emoji_char|
-      mock(emoji_char).render(@document, anything).once
-    end
+    mock.proxy(Prawn::Emoji::Image).new.with_any_args.times(3)
 
     @drawer.draw(text, @text_options)
   end
