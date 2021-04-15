@@ -26,13 +26,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up diff-pdf
-      run: |
-        sudo apt update
-        sudo apt install make automake g++ libpoppler-glib-dev poppler-utils libwxgtk3.0-gtk3-dev
-        git clone https://github.com/vslavik/diff-pdf.git -b v0.5 --depth 1 /tmp/diff-pdf-src
-        cd /tmp/diff-pdf-src
-        ./bootstrap && ./configure && make && sudo make install
+    - uses: hidakatsuya/setup-diff-pdf@v1
+      with:
+        diff-pdf-version: 0.5
 
     - name: Set up Ruby ${{ matrix.ruby_version }}
       uses: ruby/setup-ruby@v1
