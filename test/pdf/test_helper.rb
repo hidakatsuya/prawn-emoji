@@ -5,8 +5,13 @@ $:.unshift File.expand_path('../../lib', __FILE__)
 require 'prawn'
 require 'prawn/emoji'
 
-require 'test/unit'
+require 'test/unit/pdf_matcher'
 require 'pathname'
+
+PdfMatcher.config.diff_pdf_opts = %w(
+  --mark-differences
+  --channel-tolerance=40
+)
 
 class PdfTest < Test::Unit::TestCase
   class << self
@@ -17,12 +22,8 @@ class PdfTest < Test::Unit::TestCase
     end
   end
 
-  def assert_match_pdf
-    if expect_pdf.exist?
-      assert_true match_pdf?, 'actual.pdf does not match expect.pdf. Check diff.pdf for details.'
-    else
-      flunk 'expect.pdf does not exist.'
-    end
+  def assert_pdf
+    assert_match_pdf expect_pdf, actual_pdf, output_diff_path: diff_pdf
   end
 
   def actual_pdf
@@ -39,15 +40,6 @@ class PdfTest < Test::Unit::TestCase
 
   def dir
     @dir ||= Pathname.new(__dir__).join(self.class.case_name)
-  end
-
-  def match_pdf?
-    opts = [
-      '--mark-differences',
-      # Allow for small differences that cannot be seen
-      '--channel-tolerance=40'
-    ]
-    system("diff-pdf #{opts.join(' ')} --output-diff=#{diff_pdf} #{expect_pdf} #{actual_pdf}")
   end
 
   class Pdf

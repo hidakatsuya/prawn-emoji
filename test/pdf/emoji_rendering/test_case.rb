@@ -46,7 +46,7 @@ module EmojiRendering
         end
       end
 
-      assert_match_pdf
+      assert_pdf
     end
   end
 end

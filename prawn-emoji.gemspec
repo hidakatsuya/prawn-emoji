@@ -24,5 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'test-unit', '>= 3.3.9'
   spec.add_development_dependency 'test-unit-rr', '>= 1.0.5'
+  spec.add_development_dependency 'test-unit-pdf_matcher', '>= 1.0.0'
   spec.add_development_dependency 'rubyzip', '>= 1.0.0'
 end
