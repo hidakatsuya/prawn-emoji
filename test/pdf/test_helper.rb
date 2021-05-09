@@ -5,7 +5,7 @@ $:.unshift File.expand_path('../../lib', __FILE__)
 require 'prawn'
 require 'prawn/emoji'
 
-require 'test/unit/pdf_matcher'
+require 'pdf_matcher/testing/test_unit_adapter'
 require 'pathname'
 
 PdfMatcher.config.diff_pdf_opts = %w(
@@ -23,7 +23,7 @@ class PdfTest < Test::Unit::TestCase
   end
 
   def assert_pdf
-    assert_match_pdf expect_pdf, actual_pdf, output_diff_path: diff_pdf
+    assert_match_pdf expect_pdf, actual_pdf, output_diff: diff_pdf
   end
 
   def actual_pdf
