@@ -3,6 +3,11 @@
 * Drop Prawn 2.2 support
 * Drop Ruby 2.5 support
 
+### Minor Enhancements
+
+ * Support Emoji 13.1 #43 [@aried3r]
+ * Depends on unicode-emoji v2.8.x #43 [@aried3r]
+
 ## 4.2.0
 
 ### Minor Enhancements
