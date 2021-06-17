@@ -1,9 +1,13 @@
 ## Main (Unreleased)
 
+## 5.0.0
+
+### Breaking Changes
+
 * Drop Prawn 2.2 support
 * Drop Ruby 2.5 support
 
-### Minor Enhancements
+### Enhancements
 
  * Support Emoji 13.1 #43 [@aried3r]
  * Depends on unicode-emoji v2.8.x #43 [@aried3r]
