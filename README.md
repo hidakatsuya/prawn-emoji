@@ -143,7 +143,7 @@ You can run test:
 Or, you can run test instantly like this:
 
 ```
-$ docker run --rm -v $PWD:/src:cached -it prawn-emoji bash -c "bundle install && bundle exec rake test:pdf"
+$ docker run --rm -v $PWD:/src:cached -it ghcr.io/hidakatsuya/ruby-with-diff-pdf bash -c "bundle install && bundle exec rake test:pdf"
 ```
 
 ### Updating the bundled emojis
