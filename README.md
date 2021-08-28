@@ -127,8 +127,8 @@ In order to run `test:pdf`, you need to install [diff-pdf](https://github.com/vs
 You can use the docker container for development. This container contains the libraries required for testing, such as diff-pdf.
 
 ```
-$ docker build -t prawn-emoji:latest .
-$ docker run -v $PWD:/src:cached -it prawn-emoji bash
+docker pull ghcr.io/hidakatsuya/ruby-with-diff-pdf:latest
+docker run -v $PWD:/src -it ghcr.io/hidakatsuya/ruby-with-diff-pdf bash
 
 > src#
 ```
