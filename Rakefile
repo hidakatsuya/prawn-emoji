@@ -68,7 +68,7 @@ namespace :emoji do
 
       source_zip = Tempfile.open do |t|
         t.binmode
-        t.write open("https://github.com/twitter/twemoji/archive/v#{target_version}.zip").read
+        t.write URI.open("https://github.com/twitter/twemoji/archive/v#{target_version}.zip").read
         t
       end
 
