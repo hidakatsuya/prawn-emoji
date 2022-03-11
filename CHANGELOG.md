@@ -1,5 +1,9 @@
 ## Main (Unreleased)
 
+## 5.1.0
+
+### Minor Enhancements
+
 * Update Twemoji to 13.1.1
 
 ## 5.0.0
