@@ -33,6 +33,22 @@ class Prawn::Emoji::DrawerTest < Test::Unit::TestCase
     @drawer.draw(text, @text_options)
   end
 
+  test 'Emojis for which no image exists should not be drawn as emojis' do
+    text = "aaa🍣bbb🍣"
+
+    # Always returns false for the check if an emoji image exists
+    stub(@drawer.send(:emoji_index)).include? { false }
+
+    mock(@document).draw_text!('aaa🍣', is_a(Hash)).once
+    mock(@document).draw_text!('bbb🍣', is_a(Hash)).once
+    mock(@document).draw_text!('', is_a(Hash)).once
+
+    # The process of drawing emoji images is never called
+    mock(@drawer).draw_emoji.with_any_args.never
+
+    @drawer.draw(text, @text_options)
+  end
+
   sub_test_case 'Opened image file descriptor' do
     test 'The file descriptors should be closed' do
       opened_files = { before: count_opened_files, after: nil }
