@@ -1,5 +1,7 @@
 ## Main (Unreleased)
 
+## 5.2.0
+
 * Update unicode-emoji to v3.1.0 [@aried3r]
 * And now prawn-emoji depends on unicode-emoji v3.x
   * Excluded PATCH level from version constraints for unicode-emoji
