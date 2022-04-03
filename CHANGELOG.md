@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 5.3.0
+
+### Added
+
+* Support Emoji 14.0
+* Update to Twemoji v14.0.1
+
 ## 5.2.0
 
 ### Changed
@@ -30,8 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- * Support Emoji 13.1 #43 [@aried3r]
- * Depends on unicode-emoji v2.8.x #43 [@aried3r]
+* Support Emoji 13.1 #43 [@aried3r]
+* Depends on unicode-emoji v2.8.x #43 [@aried3r]
 
 ## 4.2.0
 
