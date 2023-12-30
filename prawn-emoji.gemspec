@@ -11,14 +11,14 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/hidakatsuya/prawn-emoji'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = '>= 2.7'
+  spec.required_ruby_version = '>= 3.0'
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^test/}) }
   end
   spec.require_path  = 'lib'
 
-  spec.add_runtime_dependency 'prawn', '~> 2.3'
+  spec.add_runtime_dependency 'prawn', '~> 2.4'
   spec.add_runtime_dependency 'unicode-emoji', '~> 3.1'
   # Workaround for gem loading error in ruby 3.1
   # https://github.com/prawnpdf/prawn/issues/1235
