@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-* Drop Ruby 2.6 support
+* Drop Ruby 2.6 and 2.7 support
+* Drop Prawn 2.3 support
 
 ## 5.3.0
 
