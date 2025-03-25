@@ -22,14 +22,14 @@ jobs:
           - '3.3'
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-    - uses: hidakatsuya/action-setup-diff-pdf@v1
+    - uses: hidakatsuya/action-setup-diff-pdf@ce0f23ec56c476d7a403fa5fbbd86b55e308eb73 # v1.4.0
       with:
         diff-pdf-version: '0.5'
 
     - name: Set up Ruby ${{ matrix.ruby_version }}
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@1a615958ad9d422dd932dc1d5823942ee002799f # v1.227.0
       with:
         ruby-version: ${{ matrix.ruby_version }}
         bundler-cache: true
