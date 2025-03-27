@@ -52,7 +52,7 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 
 ### Ruby
 
-3.0, 3.1, 3.2, 3.3
+3.2, 3.3, 3.4
 
 ## Installation
 
