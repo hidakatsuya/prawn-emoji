@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 * **Breaking change**: Switch emoji images to jdecked/twemoji from twitter/twemoji
-* Drop Ruby 2.6 and 2.7 support
+* Support Ruby 3.2 or later
 * Drop Prawn 2.3 support
 
 ## 5.3.0
