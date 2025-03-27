@@ -20,7 +20,7 @@ For execute this code, you need [DejaVuSans.ttf](http://sourceforge.net/projects
 
 ### Emoji
 
-  * Emoji is provided by [Twemoji](https://github.com/twitter/twemoji)
+  * Emoji is provided by [jdecked/twemoji](https://github.com/jdecked/twemoji)
   * Support Singleton/Combining/Modifier/Flag/ZWJ Sequence Emoji
 
 See [test/pdf/emoji_rendering/expect.pdf](https://github.com/hidakatsuya/prawn-emoji/blob/main/test/pdf/emoji_rendering/expect.pdf) for details.
@@ -44,7 +44,7 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 
 ### Emoji
 
-14.0
+15.1
 
 ### Prawn
 
@@ -154,7 +154,7 @@ $ bundle exec rake emoji:update VERSION=<Twemoji version>
 
 This task works the following:
 
-1. Download emoji images from https://github.com/twitter/twemoji/
+1. Download emoji images from https://github.com/jdecked/twemoji/
 2. Save the emoji images in the `emoji/images/`
 3. Write image list in `emoji/images/` to `emoji/index.yml`
 4. Update version in `emoji/LICENSE`
@@ -165,7 +165,7 @@ This task works the following:
 
 ### Twemoji
 
-[Twemoji](https://github.com/twitter/twemoji) Graphics licensed under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/). See `emoji/LICENSE` for futher details.
+[Twemoji](https://github.com/jdecked/twemoji) Graphics licensed under [CC-BY4.0](https://creativecommons.org/licenses/by/4.0/). See `emoji/LICENSE` for futher details.
 
 ### IPA Font
 

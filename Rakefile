@@ -54,7 +54,7 @@ namespace :emoji do
   end
 
   namespace :twemoji do
-    desc 'Load and put github.com/twitter/twemoji/assets/72x72/*.png to the emoji/images/'
+    desc 'Load and put github.com/jdecked/twemoji/assets/72x72/*.png to the emoji/images/'
     task :load do
       require 'prawn/emoji'
       require 'open-uri'
@@ -64,11 +64,11 @@ namespace :emoji do
       target_version = ENV['VERSION']
       image_dir = Prawn::Emoji.root.join('emoji', 'images')
 
-      puts "Loading source of v#{target_version} from github.com/twitter/twemoji ..."
+      puts "Loading source of v#{target_version} from github.com/jdecked/twemoji ..."
 
       source_zip = Tempfile.open do |t|
         t.binmode
-        t.write URI.open("https://github.com/twitter/twemoji/archive/v#{target_version}.zip").read
+        t.write URI.open("https://github.com/jdecked/twemoji/archive/v#{target_version}.zip").read
         t
       end
 
