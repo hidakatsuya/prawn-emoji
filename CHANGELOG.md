@@ -1,5 +1,8 @@
 # Changelog
 
+> [!IMPORTANT]
+> The Changelog has moved to GitHub Releases since 6.0.0. Please refer to: https://github.com/hidakatsuya/prawn-emoji/releases
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -7,16 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-* **Breaking change**: Switch emoji images to jdecked/twemoji from twitter/twemoji
-* Support Ruby 3.2 or later
-* Drop Prawn 2.3 support
-
 ## 5.3.0
 
 ### Added
 
 * Support Emoji 14.0
-* Update to Twemoji v14.0.1
+* Update to Twemoji 14.0.1
 
 ## 5.2.0
 
