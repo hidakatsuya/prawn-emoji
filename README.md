@@ -44,7 +44,7 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 
 ### Emoji
 
-15.1
+17.0
 
 ### Prawn
 

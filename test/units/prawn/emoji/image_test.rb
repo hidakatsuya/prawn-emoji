@@ -41,4 +41,12 @@ class Prawn::Emoji::ImageTest < Test::Unit::TestCase
 
     emoji_image.render(document, at: position.values)
   end
+
+  test 'bundled images can be embedded by Prawn' do
+    document = Prawn::Document.new
+
+    Prawn::Emoji::Image::STORE.glob('*.png').each do |path|
+      assert_nothing_raised(path.basename.to_s) { document.image(path.to_s, at: [0, 0]) }
+    end
+  end
 end
