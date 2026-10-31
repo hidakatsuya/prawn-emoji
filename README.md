@@ -54,9 +54,6 @@ See [test/pdf/prawn_integration/expect.pdf](https://github.com/hidakatsuya/prawn
 
 3.3, 3.4, 4.0
 
-We support and test Ruby versions under normal or security maintenance by the
-[Ruby core team](https://www.ruby-lang.org/en/downloads/branches/).
-
 ## Installation
 
 Add this line to your application's Gemfile:
